@@ -1,0 +1,122 @@
+commit 08e74f0bfce43e31b3300412a60e5145fa92e7f8
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Mon Nov 6 22:16:02 2023 +0200
+
+    rename file 2
+
+ tiedostoja/{file2 => file22} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 690e6d3783c3bdbb76aec401da8f12246c8772e1
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Mon Nov 6 22:14:53 2023 +0200
+
+    remove file1
+
+ tiedostoja/file1 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b06b7f2a120a6200daf1abc61db1e22cf0a9107d
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Mon Nov 6 22:04:41 2023 +0200
+
+    make files
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 71e78d2e84e8e0d7511fbfe74c4066b0a402a7f6
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:36:07 2023 +0200
+
+    added
+
+ eka.txt    | 5 +++--
+ kolmas.txt | 2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+commit f6fc094422b41a1cb7efc2d3aaa8da9c654a926a
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:29:17 2023 +0200
+
+    rename tiedesto.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3e4941048649caac3b71a5001a89b81d77f0a27b
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:27:39 2023 +0200
+
+    remove toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 9a5557ea15d426188a8216704c6467e11fe1a527
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:24:23 2023 +0200
+
+    remove and add
+
+ tiedosto.txt | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit 49aab059ad397ed1f6f78267c66c5fe386cc1c92
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:20:17 2023 +0200
+
+    add bee movie
+
+ tiedosto.txt | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit 49d91a19bdf3f65ea0c541f2754d0e4e90aacc08
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:12:46 2023 +0200
+
+    create stuff
+
+ stuff/things.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 24d4d365feb94fb5439afa459c7fbc69a13cb261
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:10:03 2023 +0200
+
+    changes
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 40e19b737b4af6483a2cdb98f5ad4145515a5022
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 20:07:18 2023 +0200
+
+    create kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 56a13dadbd91bd901bb66a0337f9e17b31644f30
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 19:55:44 2023 +0200
+
+    change and add
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7b52111f897da9891dddad8068de7d4a9bfc88ab
+Author: SouperSalamander <eeva.salo04@gmail.com>
+Date:   Fri Nov 3 19:51:20 2023 +0200
+
+    create tiedosto.txt
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
