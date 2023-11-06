@@ -9,3 +9,5 @@ _aaaAAAHHHHH!_
 [komentorivi.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/komentorivi.txt)
 
 [gitlog.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/gitlog.txt)
+
+:)
