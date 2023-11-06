@@ -11,3 +11,5 @@ _aaaAAAHHHHH!_
 [gitlog.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/gitlog.txt)
 
 :)
+
+:(
