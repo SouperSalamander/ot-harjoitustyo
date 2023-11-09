@@ -6,9 +6,9 @@ hi im eeva and my biggest fear is **bold text**
 
 _aaaAAAHHHHH!_
 
-[komentorivi.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/komentorivi.txt)
+[komentorivi.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-[gitlog.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/gitlog.txt)
+[gitlog.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
 :)
 
