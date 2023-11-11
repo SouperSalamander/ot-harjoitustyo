@@ -6,4 +6,10 @@
 
 ## Draft of User Interface
 
-### test lol
+## Basic Functionality 
+
+### Before Login
+
+### After Login
+
+## Ideas for Further Development
