@@ -10,6 +10,8 @@ _aaaAAAHHHHH!_
 
 [gitlog.txt](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
+[vaatimusmaarittely.md](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+
 :)
 
 :(
