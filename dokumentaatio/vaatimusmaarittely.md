@@ -1,4 +1,4 @@
-### Project Secification
+# Project Secification
 
 ## Purpose of the Application
 
@@ -6,4 +6,4 @@
 
 ## Draft of User Interface
 
-# test lol
+### test lol
