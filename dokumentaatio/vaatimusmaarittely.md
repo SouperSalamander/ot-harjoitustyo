@@ -6,9 +6,7 @@ This program will provide step by step solutions for some simple number theory p
 
 ## Users
 
-The intended users for this program will be students around middle school age. This is when most children are first introduced to concepts like **GCF** and **LCM** so the program go along with, and aid, their learning.
-
-However, the aim is to make this program user friendly without being childish. This makes it an appropriate resourse for anyone who may find this useful.
+There will only be one level of user which is the normal user. They will be able to access all calculators as well as their personal search history.
 
 ## Draft of User Interface
 
