@@ -3,19 +3,57 @@ from maksukortti import Maksukortti
 
 class TestMaksukortti(unittest.TestCase):
     def setUp(self):
-        print("Set up goes here")
+        self.kortti = Maksukortti(1000)
 
     def test_konstruktori_asettaa_saldon_oikein(self):
-        # initialise the Maksukortti class with 10€ (1000 cents)
-        kortti = Maksukortti(1000)
-        # This should print the balance formatted nicely (check the Maksukortti class to see why)
-        vastaus = str(kortti)
+        self.assertEqual(str(self.kortti), "Kortilla on rahaa 10.00 euroa")
 
-        self.assertEqual(vastaus, "Kortilla on rahaa 10.00 euroa")
 
     def test_syo_edullisesti_vahentaa_saldoa_oikein(self):
-        kortti = Maksukortti(1000)
+        self.kortti.syo_edullisesti()
+
+        self.assertEqual(self.kortti.saldo_euroina(), 7.5)
+
+    def test_syo_maukkaasti_vahentaa_saldoa_oikein(self):
+        self.kortti.syo_maukkaasti()
+
+        self.assertEqual(self.kortti.saldo_euroina(), 6.0)
+
+    def test_syo_edullisesti_ei_vie_saldoa_negatiiviseksi(self):
+        kortti = Maksukortti(200)
         kortti.syo_edullisesti()
 
-        self.assertEqual(str(kortti), "Kortilla on rahaa 7.50 euroa")
+        self.assertEqual(kortti.saldo_euroina(), 2.0)
 
+    def test_kortille_voi_ladata_rahaa(self):
+        self.kortti.lataa_rahaa(2500)
+
+        self.assertEqual(self.kortti.saldo_euroina(), 35.0)
+
+    def test_kortin_saldo_ei_ylita_maksimiarvoa(self):
+        self.kortti.lataa_rahaa(20000)
+
+        self.assertEqual(self.kortti.saldo_euroina(), 150.0)
+
+    def test_syo_maukkaasti_ei_vie_saldoa_negatiiviseksi(self):
+        kortti = Maksukortti(200)
+        kortti.syo_maukkaasti()
+
+        self.assertEqual(kortti.saldo_euroina(), 2.0)
+
+    def test_cant_add_negative(self):
+        self.kortti.lataa_rahaa(-2500)
+
+        self.assertEqual(self.kortti.saldo_euroina(), 10.0)
+
+    def test_can_spend_all_cheap(self):
+        kortti = Maksukortti(250)
+        kortti.syo_edullisesti()
+
+        self.assertEqual(kortti.saldo_euroina(), 0.0)
+    
+    def test_can_spend_all_expensive(self):
+        kortti = Maksukortti(400)
+        kortti.syo_maukkaasti()
+
+        self.assertEqual(kortti.saldo_euroina(), 0.0)
