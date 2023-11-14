@@ -8,7 +8,7 @@ _aaaAAAHHHHH!_
 
 [työaikakirjanpito](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
-[vaatimusmaarittely.md](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+[vaatimusmaarittely](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 [laskarit](https://github.com/SouperSalamander/ot-harjoitustyo/tree/main/laskarit)
 
