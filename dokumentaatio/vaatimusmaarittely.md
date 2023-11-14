@@ -10,6 +10,8 @@ There will only be one level of user which is the normal user. They will be able
 
 ## Draft of User Interface
 
+![image](UIdesign.png)
+
 ## Basic Functionality 
 
 ### Before Login
