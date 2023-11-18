@@ -1,5 +1,8 @@
 ```mermaid
  classDiagram
+    class StartingSquare {
+      startFunction()
+    }
     MonopolyGame "1" -- "2" Dice
     MonopolyGame "1" -- "1" Board
     Board "1" -- "1" StartingSquare
