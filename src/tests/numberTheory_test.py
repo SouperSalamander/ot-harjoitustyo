@@ -1,5 +1,5 @@
 import unittest
-from numberTheory import Operations
+from src.numberTheory import Operations
 
 class TestOperations(unittest.TestCase):
     def setUp(self):
