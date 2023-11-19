@@ -7,3 +7,5 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 [työaikakirjanpito](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
 [vaatimusmaarittely](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+
+[change log](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
