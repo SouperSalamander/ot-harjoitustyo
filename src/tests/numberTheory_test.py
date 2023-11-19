@@ -6,4 +6,4 @@ class TestOperations(unittest.TestCase):
         self.calc = Operations(12,18)
 
     def test_gcf(self):
-        self.assertEqual(self.calc.gcf(), 6)
+        self.assertEqual(self.calc.gcf(), "Step 1: 18 / 12 = 1 remainder: 6\nStep 2: 12 / 6 = 2 remainder: 0\nThe Greatest Common Factor is 6") 
