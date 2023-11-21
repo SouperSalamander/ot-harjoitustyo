@@ -13,4 +13,9 @@
     activate uusi_kortti
     uusi_kortti -->> lippu_luukku: uusi_kortti
     deactivate uusi_kortti
+    Main ->> rautatietori: lataa_arvoa(kallen_kortti, 3)
+    activate rautatietori
+    rautatietori ->> uusi_kortti: kasvata_arvoa(maara)
+    deactivate rautatietori
+    
 ```
