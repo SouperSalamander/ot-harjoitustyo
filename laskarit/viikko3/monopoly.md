@@ -15,6 +15,7 @@
     Square <|-- Street
     Street "1" -- "0..4" Building
     Street "1" -- "0..1" Hotel
+    Street "*" -- "1" Player
     Chance "1" -- "*" ChanceCard
     Chest "1" -- "*" ChestCard
     Square "1" -- "0..8" Piece
