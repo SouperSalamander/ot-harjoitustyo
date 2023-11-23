@@ -8,3 +8,4 @@
 | 17/11/23 | 2.5   | UI creation and basic functionality |
 | 18/11/23 | 1     | editing and fixing some parts of UI | 
 | 19/11/23 | 1.5   | made first test and coverage report |
+| 23/11/23 | 2     | added more functionality to project |
