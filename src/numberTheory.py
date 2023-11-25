@@ -47,12 +47,38 @@ class lcmClass():
     def lcm(self):
         first = int(self.number1)
         second = int(self.number2)
+        gcf_list = list(gcfClass(first,second).gcf().split(" "))
+        n = len(gcf_list)
+        lcm_is = round((first*second)/(int(gcf_list[n-1])))
         line1 = "Step 1: " + str(first) + " * " + str(second) + " = " + str(first*second)
-        line2 = "Step 2: Greatest Common Factor = " + gcfClass(first,second).gcf()[-1]
-        line3 = "Step 3: " + str(first*second) + " / " + gcfClass(first,second).gcf()[-1] + " = " + str((first*second)/(int(gcfClass(first,second).gcf()[-1])))
-        line4 = "The Lowest Common Multiple is " + str((first*second)/(int(gcfClass(first,second).gcf()[-1])))
-        lcm_result = line1 + "\n" + line2 + "\n" + line3 + "\n" + line4
+        line2 = "Step 2: Greatest Common Factor = " + gcf_list[n-1]
+        line3 = "Step 3: " + str(first*second) + " / " + gcf_list[n-1] + " = " + str(lcm_is)
+        line4 = "The Lowest Common Multiple is " + str(lcm_is)
+        lcm_result = line1 + "\n" + line2 + "\n" + line3 + "\n" + line4 
         return(lcm_result)
+
+class searchHistory():
+    def __init__(self, name, num1, num2,answer, operation):
+        self.name = name
+        self.num1 = num1
+        self.num2 = num2
+        self.answer = answer
+        self.operation = operation
+
+    def editHist(self):
+        user = self.name
+        with open('userAccounts.txt', 'r') as l:
+            for line in l:
+                line = line.rstrip()
+                fullLine = line.split(",")
+                if user == fullLine[1]:
+                    with open('userAccounts.txt', 'r') as file: 
+                        data = file.readlines() 
+                    
+                    data[int(line[0])-1] = line + "," + self.num1 + " and " + self.num2 + " " + self.operation + self.answer + "\n"
+                    with open('userAccounts.txt', 'w') as file: 
+                        file.writelines(data) 
+                    break
 
 #shows greatest common factor frame
 def gcf():
@@ -109,10 +135,14 @@ def lcmClear(lcm_add_answer):
 def lcm_calculation():
     num1 = lcm_entryBox1.get()
     num2 = lcm_entryBox2.get()
+    lcm_list = list(lcmClass(num1,num2).lcm().split(" "))
+    m = len(lcm_list)
+    lcm_is = lcm_list[m-1]
     lcm_add_answer = Label(lcm_frame, text = lcmClass(num1,num2).lcm())
     lcm_add_answer.grid(row = 6, column = 1, columnspan = 2)
     lcm_clear = Button(lcm_frame, text = "clear", command = lambda: lcmClear(lcm_add_answer))
     lcm_clear.grid(row = 4, column = 3)
+    searchHistory(user_entry.get(),num1,num2,lcm_is, "lcm: ").editHist() 
 
 #enter function for login
 def enterLogin():
