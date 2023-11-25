@@ -80,6 +80,20 @@ class searchHistory():
                         file.writelines(data) 
                     break
 
+class loginClass():
+    def __init__(self, usern, passw):
+        self.usern = usern
+        self.passw = passw
+    
+    def loginCheck(self):
+        with open('userAccounts.txt', 'r') as l:
+            for line in l:
+                line = line.rstrip()
+                fullLine = line.split(",")
+                if self.usern == fullLine[1] and self.passw == fullLine[2]:
+                    return(True)
+            return(False)
+
 #shows greatest common factor frame
 def gcf():
     gcf_entryBox1.delete(0, END)
@@ -146,16 +160,9 @@ def lcm_calculation():
 
 #enter function for login
 def enterLogin():
-    correctDetails = False
     user = user_entry.get()
     password = pass_entry.get()
-    with open('userAccounts.txt', 'r') as l:
-        for line in l:
-            line = line.rstrip()
-            fullLine = line.split(",")
-            if user == fullLine[1] and password == fullLine[2]:
-                correctDetails = True
-                break
+    correctDetails = loginClass(user, password).loginCheck()
     if correctDetails == False:
         messagebox.showerror("Error", "Incorrect")
     else:
