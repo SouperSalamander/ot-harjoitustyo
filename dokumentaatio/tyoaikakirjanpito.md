@@ -10,3 +10,4 @@
 | 19/11/23 | 1.5   | made first test and coverage report    |
 | 23/11/23 | 2     | added more functionality to project    |
 | 24/11/23 | 2.5   | error fixing and further functionality |
+| 25/11/23 | 2     | funvtionaliy and tests                 |
