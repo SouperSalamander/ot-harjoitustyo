@@ -137,6 +137,10 @@ def back():
     login_btn.pack(pady = 3)
     create_btn.pack(pady = 3)
 
+def exit_function():
+    """leaves program"""
+    exit()
+
 if __name__=="__main__":
 
     root = Tk()
@@ -153,6 +157,10 @@ if __name__=="__main__":
     #makes create account button
     create_btn = Button(root, text = "Create Account", command = create_account)
     create_btn.pack(pady = 3)
+
+    #makes exit button
+    exit_btn = Button(root, text = "Exit", command = exit_function)
+    exit_btn.pack(pady = 3)
 
     #creats the different frames
     create_frame = Frame(root, width = 400, height = 400)
