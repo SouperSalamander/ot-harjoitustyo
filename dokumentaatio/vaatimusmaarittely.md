@@ -28,11 +28,11 @@ The reason for having the user log in before using the program is so that they c
 
 ### After Login
 
-- [ ] The user will be given the choice between **Greatest Common Factor (GCF)**, **Lowest Common Multiple (LCM)**, **Prime Factorisation**, **Search History**, and **Log Out**. 
+- [x] The user will be given the choice between **Greatest Common Factor (GCF)**, **Lowest Common Multiple (LCM)**, **Prime Factorisation**, **Search History**, and **Log Out**. 
 
 - [x] Choosing to log out will return the user to the welcome page.
 
-- [ ] Choosing search history will show the user their previous serches with solutions.
+- [x] Choosing search history will show the user their previous searches with solutions.
 
 - [x] The other three buttons will take the user to a part of the program where they will be able to input numbers and the selected operation will be carried out. The program will then output a step by step solution.
 
