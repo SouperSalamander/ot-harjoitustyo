@@ -22,7 +22,7 @@ def pf():
     """shows prime factorisation frame"""
     hide_words()
     hide_frames()
-    pf_frame.pack(fill = "both", expand = 1)   
+    pf_frame.pack(fill = "both", expand = 1)
 
 def login():
     """shows login frame"""
@@ -31,6 +31,26 @@ def login():
     hide_words()
     hide_frames()
     login_frame.pack(fill = "both", expand = 1)
+
+def clear_history_frame(hist_lbl,hist_back):
+    """clears history frame"""
+    hide_words()
+    hide_frames()
+    history_frame.pack(fill = "both", expand = 1)
+    hist_lbl.destroy()
+    hist_back.destroy()
+    math_menu()
+
+def see_history():
+    """user can look at search history"""
+    hide_words()
+    hide_frames()
+    history_frame.pack(fill = "both", expand = 1)
+    history_text = ViewHistory(user_entry.get()).get_info()
+    hist_lbl = Label(history_frame, text = history_text)
+    hist_lbl.pack(pady = 3)
+    hist_back = Button(history_frame, text = "BACK", command = lambda: clear_history_frame(hist_lbl,hist_back))
+    hist_back.pack(pady = 3)
 
 def gcf_clear(gcf_add_answer):
     """clears gcf frame"""
@@ -45,10 +65,14 @@ def gcf_calculation():
     """shows gcf result"""
     num1 = gcf_entryBox1.get()
     num2 = gcf_entryBox2.get()
+    gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
+    m = len(gcf_list)
+    gcf_is = gcf_list[m-1]
     gcf_add_answer = Label(gcf_frame, text = GcfClass(num1,num2).gcf())
     gcf_add_answer.grid(row = 6, column = 1, columnspan = 2)
     gcf_clear_frame = Button(gcf_frame, text = "clear", command = lambda: gcf_clear(gcf_add_answer))
     gcf_clear_frame.grid(row = 4, column = 3)
+    SearchHistory(user_entry.get(),num1,num2,gcf_is, "gcf: ").edit_hist()
 
 def lcm_clear(lcm_add_answer):
     """clears lcm frame"""
@@ -123,12 +147,14 @@ def hide_frames():
     gcf_frame.pack_forget()
     lcm_frame.pack_forget()
     pf_frame.pack_forget()
+    history_frame.pack_forget()
 
 def hide_words():
     """clears words from the frames"""
     welcome_lbl.pack_forget()
     create_btn.pack_forget()
     login_btn.pack_forget()
+    exit_btn.pack_forget()
 
 def back():
     """returns to welcome page"""
@@ -136,6 +162,7 @@ def back():
     welcome_lbl.pack()
     login_btn.pack(pady = 3)
     create_btn.pack(pady = 3)
+    exit_btn.pack(pady = 3)
 
 def exit_function():
     """leaves program"""
@@ -169,6 +196,7 @@ if __name__=="__main__":
     gcf_frame = Frame(root, width = 400, height = 400)
     lcm_frame = Frame(root, width = 400, height = 400)
     pf_frame = Frame(root, width = 400, height = 400)
+    history_frame = Frame(root, width = 400, height = 400)
 
     #login
     login_lbl = Label(login_frame, text = "Login", font = (None, 22))
@@ -236,6 +264,9 @@ if __name__=="__main__":
     pf_btn = Button(menu_frame, text = "Prime Factorisation", command = pf)
     pf_btn.pack(pady = 3)
 
+    history_btn = Button(menu_frame, text = "Search History", command = see_history)
+    history_btn.pack(pady = 3)
+
     logOut_btn = Button(menu_frame, text = "Log Out", command = back)
     logOut_btn.pack(pady = 3)
 
@@ -282,6 +313,10 @@ if __name__=="__main__":
 
     lcm_back = Button(lcm_frame, text = "back", command = math_menu)
     lcm_back.grid(row = 5, column = 3)
+
+    #history frame
+    hist_title_lbl = Label(history_frame, text = "Search History", font = (None, 22))
+    hist_title_lbl.pack(pady = 3)
 
     root.mainloop()
 #<3

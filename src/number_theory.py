@@ -56,6 +56,24 @@ class LcmClass():
         lcm_result = line1 + "\n" + line2 + "\n" + line3 + "\n" + line4
         return lcm_result
 
+class ViewHistory():
+    """gets the search history text for the label"""
+    def __init__(self, name):
+        self.name = name
+    
+    def get_info(self):
+        """gets info from file"""
+        hist_text = ""
+        with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
+            for line in l:
+                line = line.rstrip()
+                full_line = line.split(",")
+                if full_line[1] == self.name:
+                    line = line.split(",")
+                    for i in range(3,len(line)):
+                        hist_text = hist_text + line[i] + "\n"
+        return hist_text
+
 class SearchHistory():
     """class to add to search history"""
     def __init__(self, name, num1, num2,answer, operation):
