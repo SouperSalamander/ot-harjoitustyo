@@ -12,3 +12,4 @@
 | 24/11/23 | 2.5   | error fixing and further functionality |
 | 25/11/23 | 2     | functionaliy and tests                 |
 | 26/11/23 | 1     | fixing pylint errors                   |
+| 26/11/23 | 1     | separating UI and functionality        |
