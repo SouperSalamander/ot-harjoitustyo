@@ -1,19 +1,23 @@
 import unittest
-from src.numberTheory import gcfClass
-from src.numberTheory import lcmClass
-from src.numberTheory import loginClass
+from src.numberTheory import GcfClass
+from src.numberTheory import LcmClass
+from src.numberTheory import LoginClass
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
-        self.goodInfo = loginClass("user1","abc1")
+        self.goodInfo = LoginClass("salamander","a123")
+        self.badInfo = LoginClass("wrong","bad")
 
     def test_correct_login(self):
-        self.assertEqual(self.goodInfo.loginCheck(), True)
+        self.assertEqual(self.goodInfo.login_check(), True)
+
+    def test_wrong_login(self):
+        self.assertEqual(self.badInfo.login_check(), False)
 
 class TestOperations(unittest.TestCase):
     def setUp(self):
-        self.calc1 = gcfClass(12,18)
-        self.calc2 = lcmClass(32,13)
+        self.calc1 = GcfClass(12,18)
+        self.calc2 = LcmClass(32,13)
 
     def test_gcf(self):
         class_return = list(self.calc1.gcf().split(" "))
