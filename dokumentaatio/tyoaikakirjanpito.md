@@ -11,3 +11,4 @@
 | 23/11/23 | 2     | added more functionality to project    |
 | 24/11/23 | 2.5   | error fixing and further functionality |
 | 25/11/23 | 2     | functionaliy and tests                 |
+| 26/11/23 | 1     | fixing pylint errors                   |
