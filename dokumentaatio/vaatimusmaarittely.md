@@ -22,7 +22,7 @@ There will only be one level of user which is the normal user. They will be able
 
 - [x] If they choose to create an account they will be asked to input a unique username and password. If the account already exists it will notify the user of this where they can then log in. If the account doesnt exist, it will be created and from there the user can log in.
 
-- [ ] Choosing exit will close the program.
+- [x] Choosing exit will close the program.
 
 The reason for having the user log in before using the program is so that they can access their usage history.
 
