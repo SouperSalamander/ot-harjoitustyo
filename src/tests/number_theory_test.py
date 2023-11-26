@@ -1,7 +1,7 @@
 import unittest
-from src.numberTheory import GcfClass
-from src.numberTheory import LcmClass
-from src.numberTheory import LoginClass
+from src.number_theory import GcfClass
+from src.number_theory import LcmClass
+from src.number_theory import LoginClass
 
 class TestLogin(unittest.TestCase):
     def setUp(self):

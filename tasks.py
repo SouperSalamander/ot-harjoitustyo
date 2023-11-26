@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python3 src/numberTheory.py", pty = True)
+    ctx.run("python3 src/number_theory.py", pty = True)
 
 @task
 def test(ctx):

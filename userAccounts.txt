@@ -1,3 +1,4 @@
-1,salamander,a123,77 and 33 lcm: 231,44 and 22 lcm: 44,1 and 3 lcm: 3,4 and 5 lcm: 20
+1,salamander,a123
 2,eeva,e1
 3,tim,othy1
+4,bob,abc1
