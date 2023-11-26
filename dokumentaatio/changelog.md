@@ -10,3 +10,6 @@
 * The user is now able to create an account and log in to the program.
 * Added `LcmClass` class which will calculate lowest common multiple.
 * Added the lcm function to the `LcmClass` class.
+* Added test to check that `LcmClass` class returns correct value for lcm.
+* Added `SearchHistory` class that adds searches to file.
+* Added `ViewHistory` class that allows user to view their search history.
