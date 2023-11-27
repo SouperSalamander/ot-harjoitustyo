@@ -9,3 +9,5 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 [vaatimusmaarittely](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 [change log](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+
+[arkkitehtuuri](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
