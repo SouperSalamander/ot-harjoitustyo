@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python3 src/number_theory.py", pty = True)
+    ctx.run("python3 number_theoryUI.py", pty = True)
 
 @task
 def test(ctx):
@@ -14,4 +14,4 @@ def coverage_report(ctx):
 
 @task
 def lint(ctx):
-    ctx.run("poetry add pylint --group dev pylint src", pty=True)
+    ctx.run("pylint src", pty=True)
