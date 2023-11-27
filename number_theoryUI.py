@@ -1,4 +1,4 @@
-from number_theory import *
+from src.number_theory import *
 from tkinter import *
 from tkinter import messagebox
 import os

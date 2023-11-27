@@ -60,7 +60,7 @@ class ViewHistory():
     """gets the search history text for the label"""
     def __init__(self, name):
         self.name = name
-    
+
     def get_info(self):
         """gets info from file"""
         hist_text = ""
@@ -136,23 +136,21 @@ class AccountCreation():
             unique_id = 1
         if self.password1 != self.password2:
             return False, False, True, False, False
-        elif not re.search(r"[\d]+", self.password1):
+        if not re.search(r"[\d]+", self.password1):
             return False, False, False, True, False
-        elif not re.search("[A-Z]", self.password1) and not re.search("[a-z]", self.password1):
+        if not re.search("[A-Z]", self.password1) and not re.search("[a-z]", self.password1):
             return False, False, False, False, True
-        else:
-            with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
-                for line in l:
-                    line = line.rstrip()
-                    full_line = line.split(",")
-                    if self.chosen_user == full_line[1] and self.password1 == full_line[2]:
-                        repeat_account = True
-            if repeat_account is True:
-                return False, True, False, False, False
-            else:
-                file_object = open('userAccounts.txt', 'a', encoding = "utf-8")
-                file_object.write(str(unique_id) + ',' + self.chosen_user + \
-                ',' + self.password1 + '\n')
-                file_object.close()
-                return True, False, False, False, False
+        with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
+            for line in l:
+                line = line.rstrip()
+                full_line = line.split(",")
+                if self.chosen_user == full_line[1] and self.password1 == full_line[2]:
+                    repeat_account = True
+        if repeat_account is True:
+            return False, True, False, False, False
+        with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
+            file_object.write(str(unique_id) + ',' + self.chosen_user + \
+            ',' + self.password1 + '\n')
+            file_object.close()
+            return True, False, False, False, False
                 

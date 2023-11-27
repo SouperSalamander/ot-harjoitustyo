@@ -11,3 +11,7 @@ def test(ctx):
 @task(test)
 def coverage_report(ctx):
     ctx.run("coverage html", pty=True)
+
+@task
+def lint(ctx):
+    ctx.run("poetry add pylint --group dev pylint src", pty=True)
