@@ -13,4 +13,4 @@
 | 25/11/23 | 2     | functionaliy and tests                 |
 | 26/11/23 | 1     | fixing pylint errors                   |
 | 26/11/23 | 1     | separating UI and functionality        |
-| 27/11/23 | 1     | more functionality                     |
+| 27/11/23 | 1.5   | more functionality and invoke tasks    |
