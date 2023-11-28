@@ -1,14 +1,22 @@
 import unittest
+import os
 from src.number_theory import GcfClass
 from src.number_theory import LcmClass
 from src.number_theory import LoginClass
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
-        self.goodInfo = LoginClass("salamander","a123")
+        self.goodInfo = LoginClass("fake","account")
         self.badInfo = LoginClass("wrong","bad")
 
     def test_correct_login(self):
+        if os.path.isfile('userAccounts.txt') is False:
+            with open('userAccounts.txt','a', encoding = "utf-8") as file:
+                file.close()
+        with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
+            file_object.write('0' + ',' + 'fake' + \
+            ',' + 'account' + '\n')
+            file_object.close()
         self.assertEqual(self.goodInfo.login_check(), True)
 
     def test_wrong_login(self):
