@@ -1,4 +1,0 @@
-1,salamander,a123,12 and 8 lcm: 24,33 and 77 lcm: 231,4 and 5 lcm: 20,2 and 1 lcm: 2,21 and 56 lcm: 168,32 and 45 gcf: 1
-2,eeva,e1
-3,tim,othy1
-4,bob,abc1
