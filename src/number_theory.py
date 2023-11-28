@@ -106,6 +106,9 @@ class LoginClass():
 
     def login_check(self):
         """function compares user input to file"""
+        if os.path.isfile('userAccounts.txt') is False:
+            with open('userAccounts.txt','a', encoding = "utf-8") as file:
+                file.close()
         with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
             for line in l:
                 line = line.rstrip()
@@ -124,6 +127,9 @@ class AccountCreation():
     def account_check(self):
         """checks if the account meets requirements"""
         repeat_account = False
+        if os.path.isfile('userAccounts.txt') is False:
+            with open('userAccounts.txt','a', encoding = "utf-8") as file:
+                file.close()
         if os.path.getsize('userAccounts.txt') !=0:
             with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
                 list1 = l.readlines()
