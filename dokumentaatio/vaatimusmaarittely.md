@@ -40,7 +40,7 @@ The reason for having the user log in before using the program is so that they c
 
 - [x] LCM will take in two numbers and output the lowest common multiple with steps.
 
-- [ ] PF will take in one number and output the number as the product of its primes with steps.
+- [x] PF will take in one number and output the number as the product of its primes with steps.
 
 ## Ideas for Further Development
 
