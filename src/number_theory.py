@@ -1,6 +1,7 @@
 """number theory calculator"""
 import os
 import re
+import math
 
 class GcfClass:
     """class to carry out gcf"""
@@ -56,6 +57,25 @@ class LcmClass():
         lcm_result = line1 + "\n" + line2 + "\n" + line3 + "\n" + line4
         return lcm_result
 
+class PfClass():
+    """class for finding prime factors"""
+    def __init__(self, first_num):
+        self.first_num = first_num
+
+    def pf(self):
+        pf_list = []
+        n = int(self.first_num)
+        while n % 2 == 0:
+            pf_list.append(2)
+            n = n / 2
+        for i in range(3,int(math.sqrt(n))+1,2):
+            while n % i== 0:
+                pf_list.append(i)
+                n = n / i
+        if n > 2:
+            pf_list.append(round(n))
+        return pf_list
+
 class ViewHistory():
     """gets the search history text for the label"""
     def __init__(self, name):
@@ -92,8 +112,14 @@ class SearchHistory():
                 line = line.rstrip()
                 full_line = line.split(",")
                 if user == full_line[1]:
-                    data[int(line[0])-1] = line + "," + self.num1 + " and " + \
-                    self.num2 + " " + self.operation + self.answer + "\n"
+                    if self.operation != "pf:":
+                        data[int(line[0])-1] = line + "," + self.num1 + " and " + \
+                        self.num2 + " " + self.operation + self.answer + "\n"
+                        l.seek(0)
+                        l.writelines(data)
+                        break
+                    data[int(line[0])-1] = line + "," + self.operation + \
+                    self.answer + "\n"
                     l.seek(0)
                     l.writelines(data)
                     break

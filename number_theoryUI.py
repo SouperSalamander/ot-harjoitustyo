@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 import re
+import math
 
 def gcf():
     """shows greatest common factor frame"""
@@ -95,6 +96,32 @@ def lcm_calculation():
     lcm_clear_frame = Button(lcm_frame, text = "clear", command = lambda: lcm_clear(lcm_add_answer))
     lcm_clear_frame.grid(row = 4, column = 3)
     SearchHistory(user_entry.get(),num1,num2,lcm_is, "lcm: ").edit_hist()
+
+def pf_clear(pf_add_answer):
+    """clears pf frame"""
+    pf_entryBox1.delete(0, END)
+    hide_words()
+    hide_frames()
+    pf_frame.pack(fill = "both", expand = 1)
+    pf_add_answer.destroy()
+
+def pf_calculation():
+    """shows pf result"""
+    num1 = pf_entryBox1.get()
+    num2 = None
+    pf_list = PfClass(num1).pf()
+    pf_is = " "
+    for i in range(0,len(pf_list)):
+        if i != len(pf_list)-1:
+            pf_is = pf_is + str(pf_list[i]) + " x "
+        else:
+            pf_is = pf_is + str(pf_list[i])
+    pf_is = pf_is + " = " + num1
+    pf_add_answer = Label(pf_frame, text = pf_is)
+    pf_add_answer.grid(row = 6, column = 1, columnspan = 2)
+    pf_clear_frame = Button(pf_frame, text = "clear", command = lambda: pf_clear(pf_add_answer))
+    pf_clear_frame.grid(row = 3, column = 3)
+    SearchHistory(user_entry.get(),num1,num2,pf_is, "pf:").edit_hist()
 
 def enter_login():
     """enter function for login"""
@@ -313,6 +340,22 @@ if __name__=="__main__":
 
     lcm_back = Button(lcm_frame, text = "back", command = math_menu)
     lcm_back.grid(row = 5, column = 3)
+
+    #pf frame
+    pf_lbl = Label(pf_frame, text = "Prime Factorisation")
+    pf_lbl.grid(row = 1, column = 1, columnspan = 2)
+
+    pf_first_lbl = Label(pf_frame, text = "enter number: ")
+    pf_first_lbl.grid(row = 2, column = 1)
+
+    pf_entryBox1 = Entry(pf_frame)
+    pf_entryBox1.grid(row = 2, column = 2)
+
+    pf_enter = Button(pf_frame, text = "Calculate", width = 30, command = pf_calculation)
+    pf_enter.grid(row = 3, column = 1, columnspan = 2)
+
+    pf_back = Button(pf_frame, text = "back", command = math_menu)
+    pf_back.grid(row = 4, column = 3)
 
     #history frame
     hist_title_lbl = Label(history_frame, text = "Search History", font = (None, 22))
