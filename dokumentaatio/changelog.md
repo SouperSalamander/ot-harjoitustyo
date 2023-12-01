@@ -13,3 +13,8 @@
 * Added test to check that `LcmClass` class returns correct value for lcm.
 * Added `SearchHistory` class that adds searches to file.
 * Added `ViewHistory` class that allows user to view their search history.
+
+  ## Week 5
+
+* Added `PfClass` class which returns the number as the product of its prime factors.
+* Added the pf function to the `PfClass` class.
