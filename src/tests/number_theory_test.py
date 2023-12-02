@@ -19,7 +19,18 @@ class TestLogin(unittest.TestCase):
             file_object.write('0' + ',' + 'fake' + \
             ',' + 'account' + '\n')
             file_object.close()
+
         self.assertEqual(self.goodInfo.login_check(), True)
+
+        with open('userAccounts.txt', 'r', encoding = "utf-8") as lns:
+            lines = lns.readlines()
+
+        with open('userAccounts.txt', 'w', encoding = "utf-8") as lns:
+            for line in lines:
+                line = line.rstrip()
+                full_line = line.split(",")
+                if full_line[0] != "0":
+                    lns.write(line)
 
     def test_wrong_login(self):
         self.assertEqual(self.badInfo.login_check(), False)
