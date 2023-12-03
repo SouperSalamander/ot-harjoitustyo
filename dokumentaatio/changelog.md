@@ -18,3 +18,4 @@
 
 * Added `PfClass` class which returns the number as the product of its prime factors.
 * Added the pf function to the `PfClass` class.
+* Created `EntryChecker` class which ensures user is only able to enter suitable input values.
