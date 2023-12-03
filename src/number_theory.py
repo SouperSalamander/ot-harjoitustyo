@@ -13,25 +13,21 @@ class GcfClass:
         """function to carry out gcf"""
         first = int(self.number1)
         second = int(self.number2)
-        is_zero = False
+        remainder = 1
         gcf_result = ""
         count = 0
-        while is_zero is False:
+        while remainder != 0:
             count += 1
             difference =  first - second
             if difference < 0:
-                temp = first
-                first = second
-                second = temp
+                first,second = second,first
             else:
                 pass
             remainder = first % second
             division = int(first/second)
             gcf_result = gcf_result + "Step " + str(count) + ": " + str(first) + " / " + \
             str(second) + " = " + str(division) + " remainder: " + str(remainder) + "\n"
-            if remainder == 0:
-                is_zero = True
-            else:
+            if remainder != 0:
                 first = second
                 second = remainder
         gcf_result = gcf_result + "The Greatest Common Factor is " + str(second)
@@ -167,11 +163,11 @@ class AccountCreation():
         else:
             unique_id = 1
         if self.password1 != self.password2:
-            return False, False, True, False, False
+            return 1
         if not re.search(r"[\d]+", self.password1):
-            return False, False, False, True, False
+            return 2
         if not re.search("[A-Z]", self.password1) and not re.search("[a-z]", self.password1):
-            return False, False, False, False, True
+            return 3
         with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
             for line in l:
                 line = line.rstrip()
@@ -179,10 +175,10 @@ class AccountCreation():
                 if self.chosen_user == full_line[1] and self.password1 == full_line[2]:
                     repeat_account = True
         if repeat_account is True:
-            return False, True, False, False, False
+            return 4
         with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
             file_object.write(str(unique_id) + ',' + self.chosen_user + \
             ',' + self.password1 + '\n')
             file_object.close()
-            return True, False, False, False, False
+            return 0
                 

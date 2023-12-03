@@ -138,17 +138,16 @@ def enter_create():
     username = userCreate_entry.get()
     pass1 = pass1_entry.get()
     pass2 = pass2_entry.get()
-    good_account, repeated_account, matching, \
-    require_num, require_letter = AccountCreation(username, pass1, pass2).account_check()
-    if matching is True:
+    account_error_value = AccountCreation(username, pass1, pass2).account_check()
+    if account_error_value == 1:
         messagebox.showerror("Error", "Passwords don't match")
-    if require_num is True:
+    if account_error_value == 2:
         messagebox.showerror("Error", "Must contain a number")
-    if require_letter is True:
+    if account_error_value == 3:
         messagebox.showerror("Error", "Must contain a letter")
-    if repeated_account is True:
+    if account_error_value == 4:
         messagebox.showerror("Error", "Account Already Exists")
-    if good_account is True:
+    if account_error_value == 0:
         login()
 
 def create_account():
