@@ -1,4 +1,8 @@
-from src.number_theory import *
+from src.account_login import *
+from src.operations import *
+from src.file_useage import *
+from src.number_checks import *
+from src.search_history import *
 from tkinter import *
 from tkinter import messagebox
 import os
@@ -47,7 +51,7 @@ def see_history():
     hide_words()
     hide_frames()
     history_frame.pack(fill = "both", expand = 1)
-    history_text = ViewHistory(user_entry.get()).get_info()
+    history_text = FileReader(user_entry.get()).read_search_history()
     hist_lbl = Label(history_frame, text = history_text)
     hist_lbl.pack(pady = 3)
     hist_back = Button(history_frame, text = "BACK", command = lambda: clear_history_frame(hist_lbl,hist_back))
@@ -66,14 +70,17 @@ def gcf_calculation():
     """shows gcf result"""
     num1 = gcf_entryBox1.get()
     num2 = gcf_entryBox2.get()
-    gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
-    m = len(gcf_list)
-    gcf_is = gcf_list[m-1]
-    gcf_add_answer = Label(gcf_frame, text = GcfClass(num1,num2).gcf())
-    gcf_add_answer.grid(row = 6, column = 1, columnspan = 2)
-    gcf_clear_frame = Button(gcf_frame, text = "clear", command = lambda: gcf_clear(gcf_add_answer))
-    gcf_clear_frame.grid(row = 4, column = 3)
-    SearchHistory(user_entry.get(),num1,num2,gcf_is, "gcf: ").edit_hist()
+    if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
+        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+    else:
+        gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
+        m = len(gcf_list)
+        gcf_is = gcf_list[m-1]
+        gcf_add_answer = Label(gcf_frame, text = GcfClass(num1,num2).gcf())
+        gcf_add_answer.grid(row = 6, column = 1, columnspan = 2)
+        gcf_clear_frame = Button(gcf_frame, text = "clear", command = lambda: gcf_clear(gcf_add_answer))
+        gcf_clear_frame.grid(row = 4, column = 3)
+        SearchHistory(user_entry.get(),num1,num2,gcf_is, "gcf: ").edit_hist()
 
 def lcm_clear(lcm_add_answer):
     """clears lcm frame"""
@@ -88,14 +95,17 @@ def lcm_calculation():
     """shows lcm results"""
     num1 = lcm_entryBox1.get()
     num2 = lcm_entryBox2.get()
-    lcm_list = list(LcmClass(num1,num2).lcm().split(" "))
-    m = len(lcm_list)
-    lcm_is = lcm_list[m-1]
-    lcm_add_answer = Label(lcm_frame, text = LcmClass(num1,num2).lcm())
-    lcm_add_answer.grid(row = 6, column = 1, columnspan = 2)
-    lcm_clear_frame = Button(lcm_frame, text = "clear", command = lambda: lcm_clear(lcm_add_answer))
-    lcm_clear_frame.grid(row = 4, column = 3)
-    SearchHistory(user_entry.get(),num1,num2,lcm_is, "lcm: ").edit_hist()
+    if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
+        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+    else:
+        lcm_list = list(LcmClass(num1,num2).lcm().split(" "))
+        m = len(lcm_list)
+        lcm_is = lcm_list[m-1]
+        lcm_add_answer = Label(lcm_frame, text = LcmClass(num1,num2).lcm())
+        lcm_add_answer.grid(row = 6, column = 1, columnspan = 2)
+        lcm_clear_frame = Button(lcm_frame, text = "clear", command = lambda: lcm_clear(lcm_add_answer))
+        lcm_clear_frame.grid(row = 4, column = 3)
+        SearchHistory(user_entry.get(),num1,num2,lcm_is, "lcm: ").edit_hist()
 
 def pf_clear(pf_add_answer):
     """clears pf frame"""
@@ -109,19 +119,24 @@ def pf_calculation():
     """shows pf result"""
     num1 = pf_entryBox1.get()
     num2 = None
-    pf_list = PfClass(num1).pf()
-    pf_is = " "
-    for i in range(0,len(pf_list)):
-        if i != len(pf_list)-1:
-            pf_is = pf_is + str(pf_list[i]) + " x "
-        else:
-            pf_is = pf_is + str(pf_list[i])
-    pf_is = pf_is + " = " + num1
-    pf_add_answer = Label(pf_frame, text = pf_is)
-    pf_add_answer.grid(row = 6, column = 1, columnspan = 2)
-    pf_clear_frame = Button(pf_frame, text = "clear", command = lambda: pf_clear(pf_add_answer))
-    pf_clear_frame.grid(row = 3, column = 3)
-    SearchHistory(user_entry.get(),num1,num2,pf_is, "pf:").edit_hist()
+    if EntryChecker(num1).check_only_numbers() is False:
+        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+    else:
+        num1 = pf_entryBox1.get()
+        num2 = None
+        pf_list = PfClass(num1).pf()
+        pf_is = " "
+        for i in range(0,len(pf_list)):
+            if i != len(pf_list)-1:
+                pf_is = pf_is + str(pf_list[i]) + " x "
+            else:
+                pf_is = pf_is + str(pf_list[i])
+        pf_is = pf_is + " = " + num1
+        pf_add_answer = Label(pf_frame, text = pf_is)
+        pf_add_answer.grid(row = 6, column = 1, columnspan = 2)
+        pf_clear_frame = Button(pf_frame, text = "clear", command = lambda: pf_clear(pf_add_answer))
+        pf_clear_frame.grid(row = 3, column = 3)
+        SearchHistory(user_entry.get(),num1,num2,pf_is, "pf:").edit_hist()
 
 def enter_login():
     """enter function for login"""

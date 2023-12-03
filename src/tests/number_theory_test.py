@@ -1,15 +1,13 @@
 import unittest
 import os
-from src.number_theory import GcfClass
-from src.number_theory import LcmClass
-from src.number_theory import PfClass
-from src.number_theory import LoginClass
-from src.number_theory import AccountCreation
+from src.account_login import *
+from src.operations import *
+from src.number_checks import *
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
-        self.goodInfo = LoginClass("fake","account")
-        self.badInfo = LoginClass("wrong","bad")
+        self.good_info = LoginClass("fake","account")
+        self.bad_info = LoginClass("wrong","bad")
 
     def test_correct_login(self):
         if os.path.isfile('userAccounts.txt') is False:
@@ -20,20 +18,17 @@ class TestLogin(unittest.TestCase):
             ',' + 'account' + '\n')
             file_object.close()
 
-        self.assertEqual(self.goodInfo.login_check(), True)
+        self.assertEqual(self.good_info.login_check(), True)
 
-        with open('userAccounts.txt', 'r', encoding = "utf-8") as lns:
-            lines = lns.readlines()
-
-        with open('userAccounts.txt', 'w', encoding = "utf-8") as lns:
+        with open("userAccounts.txt", "r", encoding = "utf-8") as f:
+            lines = f.readlines()
+        with open("userAccounts.txt", "w", encoding = "utf-8") as f:
             for line in lines:
-                line = line.rstrip()
-                full_line = line.split(",")
-                if full_line[0] != "0":
-                    lns.write(line)
+                if line.split(",")[0] != "0":
+                    f.write(line)
 
     def test_wrong_login(self):
-        self.assertEqual(self.badInfo.login_check(), False)
+        self.assertEqual(self.bad_info.login_check(), False)
 
 class TestAccountCreation(unittest.TestCase):
     def setUp(self):
@@ -55,7 +50,7 @@ class TestAccountCreation(unittest.TestCase):
     def test_no_letter(self):
         self.assertEqual(self.badAccountNoAlph.account_check(), 3)
 
-    def test_account_exists(self):
+    def test_account_exists_true(self):
         if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
@@ -66,16 +61,46 @@ class TestAccountCreation(unittest.TestCase):
 
         self.assertEqual(self.badAccountExists.account_check(), 4)
 
-    def tearDown(self):
-        with open('userAccounts.txt', 'r', encoding = "utf-8") as lns:
-            lines = lns.readlines()
+    def test_account_exists_false(self):
+        if os.path.isfile('userAccounts.txt') is False:
+            with open('userAccounts.txt','a', encoding = "utf-8") as file:
+                file.close()
+        with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
+            file_object.write('0' + ',' + 'accountTest' + \
+            ',' + 'pass2' + '\n')
+            file_object.write('0' + ',' + 'accountTest' + \
+            ',' + 'pass1' + '\n')
+            file_object.close()
+        self.assertEqual(self.badAccountExists.account_check(), 4)
 
-        with open('userAccounts.txt', 'w', encoding = "utf-8") as lns:
+    def tearDown(self):
+        with open("userAccounts.txt", "r", encoding = "utf-8") as f:
+            lines = f.readlines()
+        with open("userAccounts.txt", "w", encoding = "utf-8") as f:
             for line in lines:
-                line = line.rstrip()
-                full_line = line.split(",")
-                if full_line[1] != "accountTest":
-                    lns.write(line)
+                if line.split(",")[1] != "accountTest":
+                    f.write(line)
+
+class TestNumberChecker(unittest.TestCase):
+    def setUp(self):
+        self.good_num = EntryChecker("45")
+        self.bad_num_letter = EntryChecker("abc")
+        self.bad_num_cap = EntryChecker("ABC")
+        self.bad_no_num = EntryChecker(" ")
+        self.bad_num_zero = EntryChecker("0")
+        self.bad_num_neg = EntryChecker("-5")
+        self.bad_num_mix = EntryChecker("erjbfiFF?!] rf8329/.sd/")
+
+    def test_good_entry(self):
+        self.assertEqual(self.good_num.check_only_numbers(), True)
+
+    def test_bad_entries(self):
+        self.assertEqual(self.bad_num_letter.check_only_numbers(), False)
+        self.assertEqual(self.bad_num_cap.check_only_numbers(), False)
+        self.assertEqual(self.bad_no_num.check_only_numbers(), False)
+        self.assertEqual(self.bad_num_zero.check_only_numbers(), False)
+        self.assertEqual(self.bad_num_neg.check_only_numbers(), False)
+        self.assertEqual(self.bad_num_mix.check_only_numbers(), False)
 
 class TestOperations(unittest.TestCase):
     def setUp(self):
