@@ -62,4 +62,43 @@ classDiagram
   AccountCreation --> FileReader: uses
   SearchHistory --> FileEditor: uses
   GcfClass <-- LcmClass: uses
+
 ```
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant AccountCreation
+  participant LoginClass
+  participant EntryChecker
+  participant GcfClass
+  participant LcmClass
+  participant PfClass
+  participant FileReader
+  participant FileEditor
+
+  Main->>+AccountCreation: AccountCreation(username, password1, password2)
+  AccountCreation->>+FileReader: FileReader(username, password1)
+  FileReader-->>-AccountCreation: int
+  AccountCreation->>FileEditor: str
+  AccountCreation-->>-Main: int
+
+  Main->>+LoginClass: LoginClass(username, password)
+  LoginClass->>+FileReader: FileReader(username)
+  FileReader-->>-LoginClass: password
+  LoginClass-->>-Main: bool
+
+  Main->>+EntryChecker: EntryChecker(number)
+  EntryChecker-->>-Main: bool
+
+  Main->>+GcfClass: GcfClass(number1,number2)
+  GcfClass -->>-Main: str
+
+  Main->>+LcmClass: LcmClass(number1,number2)
+  LcmClass -->>-Main: str
+
+  Main->>+PfClass: PfClass(number1)
+  PfClass -->>-Main: list
+
+```
+
