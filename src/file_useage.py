@@ -3,10 +3,26 @@ import os
 
 class FileReader:
     """class to return file content"""
-    def __init__(self, line_choice):
+    def __init__(self, line_choice = None):
         self.line_choice = line_choice
 
-    def read_login_details(self):
+    def find_next_id(self):
+        if os.path.isfile('userAccounts.txt') is False:#
+            with open('userAccounts.txt','a', encoding = "utf-8") as file:
+                file.close()
+        if os.path.getsize('userAccounts.txt') !=0:
+            with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
+                list1 = l.readlines()
+                last_line = list1[-1]
+                last_line = last_line.rstrip()
+                line = last_line.split(",")
+                unique_id = line[0]
+                unique_id = int(unique_id) + 1
+        else:
+            unique_id = 1
+        return unique_id
+
+    def find_existing_account(self):
         if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
