@@ -1,3 +1,5 @@
+# Class Diagram
+
 ```mermaid
 classDiagram
   class LoginClass {
@@ -65,6 +67,8 @@ classDiagram
 
 ```
 
+# Sequence Diagram
+
 ```mermaid
 sequenceDiagram
   participant Main
@@ -74,31 +78,44 @@ sequenceDiagram
   participant GcfClass
   participant LcmClass
   participant PfClass
+  participant SearchHistory
   participant FileReader
   participant FileEditor
 
-  Main->>+AccountCreation: AccountCreation(username, password1, password2)
-  AccountCreation->>+FileReader: FileReader(username, password1)
-  FileReader-->>-AccountCreation: int
-  AccountCreation->>FileEditor: str
-  AccountCreation-->>-Main: int
+  Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2")
+  AccountCreation->>+FileReader: FileReader("rose", "tyler2)
+  FileReader-->>-AccountCreation: False
+  AccountCreation->>FileEditor: "0, rose, tyler2"
+  AccountCreation-->>-Main: 0
 
-  Main->>+LoginClass: LoginClass(username, password)
-  LoginClass->>+FileReader: FileReader(username)
-  FileReader-->>-LoginClass: password
-  LoginClass-->>-Main: bool
+  Main->>+LoginClass: LoginClass("rose", "tyler2")
+  LoginClass->>+FileReader: FileReader("rose")
+  FileReader-->>-LoginClass: "tyler2"
+  LoginClass-->>-Main: True
 
-  Main->>+EntryChecker: EntryChecker(number)
-  EntryChecker-->>-Main: bool
+  Main->>+EntryChecker: EntryChecker(12)
+  EntryChecker-->>-Main: True
 
-  Main->>+GcfClass: GcfClass(number1,number2)
-  GcfClass -->>-Main: str
+  Main->>+GcfClass: GcfClass(12,18)
+  GcfClass -->>-Main: 6
 
-  Main->>+LcmClass: LcmClass(number1,number2)
-  LcmClass -->>-Main: str
+  Main->>+SearchHistory: SearchHistory("rose", "12", "18", "6", "gcf: ")
+  SearchHistory->>-FileEditor: FileEditor("12 and 18 gcf: 6", "rose")
 
-  Main->>+PfClass: PfClass(number1)
-  PfClass -->>-Main: list
+  Main->>+LcmClass: LcmClass(22,3)
+  LcmClass -->>-Main: 66
+
+  Main->>+SearchHistory: SearchHistory("rose", "22", "3", "66", "lcm: ")
+  SearchHistory->>-FileEditor: FileEditor("22 and 3 lcm: 66", "rose")
+
+  Main->>+PfClass: PfClass(315)
+  PfClass -->>-Main: [3, 3, 5, 7]
+
+  Main->>+SearchHistory: SearchHistory("rose", "315", None, "3 x 3 x 5 x 7", "pf:")
+  SearchHistory->>-FileEditor: FileEditor("pf: 3 x 3 x 5 x 7 = 315", "rose")
+
+  Main->>+FileReader: FileReader("rose")
+  FileReader-->>-Main: "12 and 18 gcf: 6" + "\n" +  "22 and 3 lcm: 66" + "\n" + "pf: 3 x 3 x 5 x 7 = 315"
 
 ```
 
