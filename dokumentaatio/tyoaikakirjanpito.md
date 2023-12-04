@@ -18,3 +18,4 @@
 | 02/12/23 | 1.5   | further testing                        |
 | 03/12/23 | 1     | new tests                              |
 | 03/12/23 | 3     | functionality and separating classes   |
+| 04/12/23 | 1     | architecture diagrams                  |
