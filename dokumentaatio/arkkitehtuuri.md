@@ -83,42 +83,41 @@ sequenceDiagram
   participant FileReader
   participant FileEditor
 
-  Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2")
-  AccountCreation->>+FileReader: FileReader()
+  Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2").account_check()
+  AccountCreation->>+FileReader: FileReader().find_next_id()
   FileReader-->>-AccountCreation: 0
-  AccountCreation->>+FileReader: FileReader("rose", "tyler2")
+  AccountCreation->>+FileReader: FileReader("rose").find_existing_account()
   FileReader-->>-AccountCreation: None
-  AccountCreation->>FileEditor: "0, rose, tyler2"
+  AccountCreation->>FileEditor: FileEditor("0, rose, tyler2").add_new_account()
   AccountCreation-->>-Main: 0
 
-  Main->>+LoginClass: LoginClass("rose", "tyler2")
-  LoginClass->>+FileReader: FileReader("rose")
+  Main->>+LoginClass: LoginClass("rose", "tyler2").login_check()
+  LoginClass->>+FileReader: FileReader("rose").find_existing_account()
   FileReader-->>-LoginClass: "tyler2"
   LoginClass-->>-Main: True
 
-  Main->>+EntryChecker: EntryChecker(12)
+  Main->>+EntryChecker: EntryChecker(12).check_only_numbers()
   EntryChecker-->>-Main: True
 
-  Main->>+GcfClass: GcfClass(12,18)
+  Main->>+GcfClass: GcfClass(12,18).gcf()
   GcfClass -->>-Main: 6
 
-  Main->>+SearchHistory: SearchHistory("rose", "12", "18", "6", "gcf: ")
+  Main->>+SearchHistory: SearchHistory("rose", "12", "18", "6", "gcf: ").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("12 and 18 gcf: 6", "rose")
 
-  Main->>+LcmClass: LcmClass(22,3)
+  Main->>+LcmClass: LcmClass(22,3).lcm()
   LcmClass -->>-Main: 66
 
-  Main->>+SearchHistory: SearchHistory("rose", "22", "3", "66", "lcm: ")
+  Main->>+SearchHistory: SearchHistory("rose", "22", "3", "66", "lcm: ").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("22 and 3 lcm: 66", "rose")
 
-  Main->>+PfClass: PfClass(315)
+  Main->>+PfClass: PfClass(315).pf()
   PfClass -->>-Main: [3, 3, 5, 7]
 
-  Main->>+SearchHistory: SearchHistory("rose", "315", None, "3 x 3 x 5 x 7", "pf:")
+  Main->>+SearchHistory: SearchHistory("rose", "315", None, "3 x 3 x 5 x 7", "pf:").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("pf: 3 x 3 x 5 x 7 = 315", "rose")
 
-  Main->>+FileReader: FileReader("rose")
+  Main->>+FileReader: FileReader("rose").read_search_history()
   FileReader-->>-Main: "12 and 18 gcf: 6" + "\n" +  "22 and 3 lcm: 66" + "\n" + "pf: 3 x 3 x 5 x 7 = 315"
 
 ```
-
