@@ -11,3 +11,10 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 [change log](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
 [arkkitehtuuri](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+
+## Instructions
+
+* To start the program run `poetry run invoke start`
+* To test the program run `poetry run invoke test`
+* To generate a coverage report run `poetry run invoke coverage-report`
+* To test for pylint errors run `poetry run invoke lint`
