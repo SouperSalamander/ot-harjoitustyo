@@ -17,7 +17,8 @@ classDiagram
 
   class FileReader {
     - line_choice: str
-    + read_login_details() str
+    + find_next_id() int
+    + find_existing_account() str
     + read_search_history() str
   }
 
@@ -83,8 +84,10 @@ sequenceDiagram
   participant FileEditor
 
   Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2")
-  AccountCreation->>+FileReader: FileReader("rose", "tyler2)
-  FileReader-->>-AccountCreation: False
+  AccountCreation->>+FileReader: FileReader()
+  FileReader-->>-AccountCreation: 0
+  AccountCreation->>+FileReader: FileReader("rose", "tyler2")
+  FileReader-->>-AccountCreation: None
   AccountCreation->>FileEditor: "0, rose, tyler2"
   AccountCreation-->>-Main: 0
 
