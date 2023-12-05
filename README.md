@@ -14,6 +14,7 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 
 ## Instructions
 
+* Run `poetry install`
 * To start the program run `poetry run invoke start`
 * To test the program run `poetry run invoke test`
 * To generate a coverage report run `poetry run invoke coverage-report`
