@@ -1,8 +1,8 @@
 import unittest
 import os
-from src.account_login import *
-from src.operations import *
-from src.number_checks import *
+from functionality.account_login import *
+from functionality.operations import *
+from functionality.number_checks import *
 
 class TestLogin(unittest.TestCase):
     def setUp(self):

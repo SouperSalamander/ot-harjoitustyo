@@ -1,7 +1,7 @@
 """number theory calculator"""
 import re
-from src.file_useage import FileEditor
-from src.file_useage import FileReader
+from functionality.file_useage import FileEditor
+from functionality.file_useage import FileReader
 
 class LoginClass():
     """class to check login details"""

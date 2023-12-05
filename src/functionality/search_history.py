@@ -1,5 +1,5 @@
 """edits search history"""
-from src.file_useage import FileEditor
+from functionality.file_useage import FileEditor
 
 class SearchHistory():
     """class to add to search history"""
