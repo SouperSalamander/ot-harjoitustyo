@@ -14,7 +14,7 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 
 ## Releases
 
-[week 5](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viiko5)
+[week 5](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Instructions
 
