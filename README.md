@@ -12,6 +12,10 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 
 [arkkitehtuuri](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+## Releases
+
+[week 5](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viiko5)
+
 ## Instructions
 
 * Run `poetry install`
