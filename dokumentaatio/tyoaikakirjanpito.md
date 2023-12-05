@@ -13,10 +13,14 @@
 | 25/11/23 | 2     | functionaliy and tests                    |
 | 26/11/23 | 1     | fixing pylint errors                      |
 | 26/11/23 | 1     | separating UI and functionality           |
-| 27/11/23 | 1.5   | more functionality and invoke tasks       |
-| 01/12/23 | 2     | more functionality                        |
+| 27/11/23 | 2.5   | more functionality and invoke tasks       |
+| 01/12/23 | 3     | more functionality                        |
 | 02/12/23 | 1.5   | further testing                           |
-| 03/12/23 | 1     | new tests                                 |
+| 03/12/23 | 1.75  | new tests                                 |
 | 03/12/23 | 3     | functionality and separating classes      |
 | 04/12/23 | 2     | architecture diagram creation and updates |
 | 05/12/23 | 3     | organising files and fixing errors        |
+
+## Total Time
+
+31 hours, 45 minutes
