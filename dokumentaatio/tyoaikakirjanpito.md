@@ -19,3 +19,4 @@
 | 03/12/23 | 1     | new tests                                 |
 | 03/12/23 | 3     | functionality and separating classes      |
 | 04/12/23 | 2     | architecture diagram creation and updates |
+| 05/12/23 | 3     | organising files and fixing errors        |
