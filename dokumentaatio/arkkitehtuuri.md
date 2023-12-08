@@ -43,6 +43,14 @@ classDiagram
     + check_only_numbers() bool
   }
 
+  class QuizClass {
+    - num1: str
+    - num2: str
+    - attempt: str
+    + get_numbers() int
+    + find_gcf_result() str
+  }
+
   class GcfClass {
     - number1: str
     - number2: str
@@ -64,6 +72,9 @@ classDiagram
   AccountCreation --> FileEditor: uses
   AccountCreation --> FileReader: uses
   SearchHistory --> FileEditor: uses
+  QuizClass --> GcfClass: uses
+  QuizClass --> LcmClass: uses
+  QuizClass --> PfClass: uses
   GcfClass <-- LcmClass: uses
 
 ```
@@ -82,6 +93,7 @@ sequenceDiagram
   participant SearchHistory
   participant FileReader
   participant FileEditor
+  participant QuizClass
 
   Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2").account_check()
   AccountCreation->>+FileReader: FileReader().find_next_id()
@@ -119,5 +131,12 @@ sequenceDiagram
 
   Main->>+FileReader: FileReader("rose").read_search_history()
   FileReader-->>-Main: "12 and 18 gcf: 6" + "\n" +  "22 and 3 lcm: 66" + "\n" + "pf: 3 x 3 x 5 x 7 = 315"
+
+  Main->>+QuizClass: QuizClass().get_numbers()
+  QuizClass-->>Main: 12, 56
+  Main->>+EntryChecker: EntryChecker(4).check_only_numbers()
+  EntryChecker-->>-Main: True
+  Main->>QuizClass: QuizClass(12,56,4).find_gcf_result()
+  QuizClass-->>-Main: "correct"
 
 ```
