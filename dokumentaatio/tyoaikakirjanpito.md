@@ -20,7 +20,8 @@
 | 03/12/23 | 3     | functionality and separating classes      |
 | 04/12/23 | 2     | architecture diagram creation and updates |
 | 05/12/23 | 3     | organising files and fixing errors        |
+| 08/12/23 | 4     | new functionality                         |
 
 ## Total Time
 
-31 hours, 45 minutes
+35 hours, 45 minutes
