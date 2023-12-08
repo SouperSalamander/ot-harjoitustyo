@@ -3,6 +3,7 @@ from functionality.operations import *
 from functionality.file_useage import *
 from functionality.number_checks import *
 from functionality.search_history import *
+from functionality.quizes import *
 from tkinter import *
 from tkinter import messagebox
 import os
@@ -57,6 +58,67 @@ def see_history():
     hist_back = Button(history_frame, text = "BACK", command = lambda: clear_history_frame(hist_lbl,hist_back))
     hist_back.pack(pady = 3)
 
+def clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear):
+    gcf_test_entry.pack_forget()
+    gcf_box_lbl.pack_forget()
+    gcf_question_lbl.pack_forget()
+    back.pack_forget()
+    gcf_test_enter_btn.pack_forget()
+    gcf_test_entry
+    if flag == 1:
+        try_quiz()
+    else:
+        gcf_test_answer_lbl.pack_forget()
+        gcf_test_clear.pack_forget()
+        test_gcf()
+
+def gcf_test_results(num1,num2,gcf_question_lbl,gcf_box_lbl,gcf_test_entry,back,gcf_test_enter_btn,gcf_test_answer_lbl):
+    hide_words()
+    hide_frames()
+    gcf_quiz_frame.pack(fill = "both", expand = 1)
+    gcf_question_lbl.pack(pady = 3)
+    gcf_box_lbl.pack()
+    gcf_test_enter_btn.pack()
+    attempt = gcf_test_entry.get()
+    if EntryChecker(attempt).check_only_numbers() is False:
+        messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+    else:
+        correct_gcf = QuizClass(num1,num2,attempt).find_gcf_result()
+        gcf_test_answer_lbl = Label(gcf_quiz_frame, text = correct_gcf)
+        gcf_test_answer_lbl.pack(pady = 3)
+        back.pack()
+        flag = 0
+        gcf_test_clear = Button(gcf_quiz_frame, text = "try again", command = lambda: clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
+        gcf_test_clear.pack(pady = 3)
+
+def test_gcf():
+    """user can answer questions about gcf"""
+    hide_words()
+    hide_frames()
+    gcf_quiz_frame.pack(fill = "both", expand = 1)
+    num1,num2 = QuizClass().get_numbers()
+    question = str(num1) + " , " + str(num2)
+    gcf_question_lbl = Label(gcf_quiz_frame, text = question, font = (None, 22))
+    gcf_question_lbl.pack(pady = 3)
+    gcf_box_lbl = Label(gcf_quiz_frame, text = "Greatest Common Factor:")
+    gcf_box_lbl.pack()
+    gcf_test_entry = Entry(gcf_quiz_frame)
+    gcf_test_entry.pack()
+    attempt = gcf_test_entry.get()
+    gcf_test_enter_btn = Button(gcf_quiz_frame, text = "Enter", command = lambda: gcf_test_results(num1,num2,gcf_question_lbl,gcf_box_lbl,gcf_test_entry,back,gcf_test_enter_btn,gcf_test_answer_lbl))
+    gcf_test_enter_btn.pack(pady = 3)
+    flag = 1
+    gcf_test_answer_lbl = None
+    gcf_test_clear = None
+    back = Button(gcf_quiz_frame, text = "back", command = lambda: clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
+    back.pack(pady = 10)
+
+def try_quiz():
+    """user can pick topic for quiz"""
+    hide_words()
+    hide_frames()
+    quiz_frame.pack(fill = "both", expand = 1)
+
 def gcf_clear(gcf_add_answer):
     """clears gcf frame"""
     gcf_entryBox1.delete(0, END)
@@ -71,7 +133,7 @@ def gcf_calculation():
     num1 = gcf_entryBox1.get()
     num2 = gcf_entryBox2.get()
     if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
-        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+        messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
     else:
         gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
         m = len(gcf_list)
@@ -96,7 +158,7 @@ def lcm_calculation():
     num1 = lcm_entryBox1.get()
     num2 = lcm_entryBox2.get()
     if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
-        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+        messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
     else:
         lcm_list = list(LcmClass(num1,num2).lcm().split(" "))
         m = len(lcm_list)
@@ -120,7 +182,7 @@ def pf_calculation():
     num1 = pf_entryBox1.get()
     num2 = None
     if EntryChecker(num1).check_only_numbers() is False:
-        messagebox.showerror("Error", "only accepts whole numbers more than zero")
+        messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
     else:
         num1 = pf_entryBox1.get()
         num2 = None
@@ -189,6 +251,8 @@ def hide_frames():
     lcm_frame.pack_forget()
     pf_frame.pack_forget()
     history_frame.pack_forget()
+    quiz_frame.pack_forget()
+    gcf_quiz_frame.pack_forget()
 
 def hide_words():
     """clears words from the frames"""
@@ -237,6 +301,8 @@ if __name__ == "__main__":
     lcm_frame = Frame(root, width = 400, height = 400)
     pf_frame = Frame(root, width = 400, height = 400)
     history_frame = Frame(root, width = 400, height = 400)
+    quiz_frame = Frame(root, width = 400, height = 400)
+    gcf_quiz_frame = Frame(root, width = 400, height = 400)
 
     #login
     login_lbl = Label(login_frame, text = "Login", font = (None, 22))
@@ -303,6 +369,9 @@ if __name__ == "__main__":
 
     pf_btn = Button(menu_frame, text = "Prime Factorisation", command = pf)
     pf_btn.pack(pady = 3)
+
+    quiz_btn = Button(menu_frame, text = "Test Yourself", command = try_quiz)
+    quiz_btn.pack(pady = 3)
 
     history_btn = Button(menu_frame, text = "Search History", command = see_history)
     history_btn.pack(pady = 3)
@@ -373,6 +442,16 @@ if __name__ == "__main__":
     #history frame
     hist_title_lbl = Label(history_frame, text = "Search History", font = (None, 22))
     hist_title_lbl.pack(pady = 3)
+
+    #quiz menu
+    quiz_title_lbl = Label(quiz_frame, text = "Test your Knowledge", font = (None, 22))
+    quiz_title_lbl.pack(pady = 3)
+
+    gcf_quiz_btn = Button(quiz_frame, text = "Greatest Common Factor", command = test_gcf)
+    gcf_quiz_btn.pack(pady = 3)
+
+    quiz_back = Button(quiz_frame, text = "back", command = math_menu)
+    quiz_back.pack(pady = 3)
 
     root.mainloop()
 #<3
