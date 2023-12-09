@@ -44,8 +44,14 @@ The reason for having the user log in before using the program is so that they c
 
 ## Ideas for Further Development
 
-This project is one that could be easily expanded on in a variety of ways.
+This project is one that could be easily expanded on in a variety of ways. For example, more calculator topics as well as different functionalities like quizzes and games.
 
-More topics can be added. As an example, converting recurring decimals to fractions, or percentage increase/decrease.
+- [ ] Converting recurring decimals to fractions.
+      
+- [ ] Percentage increase/decrease.
 
-As well as this, the program could include an area to quiz the user on these topics. This would allow for progress to be tracked over time. With this, there could even be a competative aspect against other users. This would be especially good in a school setting as it would really encourage young people to spend time practising these techniques.
+- [ ] An area to quiz the user on these topics.
+
+- [ ] Quiz progress could be tracked over time.
+  
+- [ ] Tthere could be a competative aspect against other users. This would be especially good in a school setting as it would really encourage young people to spend time practising these techniques.
