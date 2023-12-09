@@ -12,6 +12,8 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 
 [arkkitehtuuri](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+[usage instructions](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/usageinstructions.md)
+
 ## Releases
 
 [week 5](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viikko5)
