@@ -23,7 +23,8 @@
 | 08/12/23 | 4 | new functionality |
 | 08/12/23 | 0.25 | update architecture diagrams and change log |
 | 09/12/23 | 0.5 | new test |
+| 09/12/23 | 1 | created usage instructions file |
 
 ## Total Time
 
-36 hours, 30 minutes
+37 hours, 30 minutes
