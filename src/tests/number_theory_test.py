@@ -131,6 +131,10 @@ class TestQuiz(unittest.TestCase):
         self.correct_answer = QuizClass(69,24,"3")
         self.wrong_answer = QuizClass(12,18,"5")
 
+    def test_num_generator(self):
+        self.assertTrue(1 <= int(QuizClass().get_numbers()[0]) <= 99)
+        self.assertTrue(1 <= int(QuizClass().get_numbers()[1]) <= 99)
+
     def test_gcf_quiz(self):
         self.assertEqual(self.correct_answer.find_gcf_result(), "Correct")
         self.assertEqual(self.wrong_answer.find_gcf_result(), "Incorrect")
