@@ -23,7 +23,7 @@
 | 08/12/23 | 4 | new functionality |
 | 08/12/23 | 0.25 | update architecture diagrams and change log |
 | 09/12/23 | 0.5 | new test |
-| 09/12/23 | 1 | created usage instructions file |
+| 09/12/23 | 1 | usage instructions file creation |
 
 ## Total Time
 
