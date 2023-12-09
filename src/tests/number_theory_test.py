@@ -3,6 +3,7 @@ import os
 from functionality.account_login import *
 from functionality.operations import *
 from functionality.number_checks import *
+from functionality.quizes import *
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
@@ -124,3 +125,12 @@ class TestOperations(unittest.TestCase):
         self.assertEqual(self.pf1.pf(), [3, 3, 13, 79])
         self.assertEqual(self.pf2.pf(), [2, 7, 11, 41])
         self.assertEqual(self.pf3.pf(), [2, 2, 2, 3, 263])
+
+class TestQuiz(unittest.TestCase):
+    def setUp(self):
+        self.correct_answer = QuizClass(69,24,"3")
+        self.wrong_answer = QuizClass(12,18,"5")
+
+    def test_gcf_quiz(self):
+        self.assertEqual(self.correct_answer.find_gcf_result(), "Correct")
+        self.assertEqual(self.wrong_answer.find_gcf_result(), "Incorrect")
