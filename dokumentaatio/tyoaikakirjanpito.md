@@ -22,7 +22,8 @@
 | 05/12/23 | 3 | organising files and fixing errors |
 | 08/12/23 | 4 | new functionality |
 | 08/12/23 | 0.25 | update architecture diagrams and change log |
+| 09/12/23 | 0.5 | new test |
 
 ## Total Time
 
-36 hours, 0 minutes
+36 hours, 30 minutes
