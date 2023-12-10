@@ -20,5 +20,6 @@ class QuizClass():
         gcf_is = gcf_list[m-1]
         if gcf_is == self.attempt:
             return "Correct"
-        return "Incorrect"
+        incorrect_str = "Incorrect. Correct answer is: " + gcf_is
+        return incorrect_str
             
