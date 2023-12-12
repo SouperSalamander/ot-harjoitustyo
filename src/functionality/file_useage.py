@@ -7,7 +7,7 @@ class FileReader:
         self.line_choice = line_choice
 
     def find_next_id(self):
-        if os.path.isfile('userAccounts.txt') is False:#
+        if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
         if os.path.getsize('userAccounts.txt') !=0:
@@ -59,6 +59,7 @@ class FileEditor:
             file_object.close()
 
     def add_search_history(self):
+        """function adds the search history string to a specific line of the file"""
         user = self.location
         with open('userAccounts.txt', 'r+', encoding = "utf-8") as l:
             data = l.readlines()
