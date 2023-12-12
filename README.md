@@ -18,6 +18,8 @@ This program will calculate **Greatest Common Factor**, **Highest Common Multipl
 
 [week 5](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viikko5)
 
+[week 6](https://github.com/SouperSalamander/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Instructions
 
 * Run `poetry install`
