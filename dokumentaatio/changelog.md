@@ -24,6 +24,8 @@
 
 ## Week 6
 
-* Added `QuizClass` class which allows the user to test their ability to calculate gcf.
+* Added `QuizClass` class which allows the user to test their ability to calculate gcf, lcm, and pf.
 * In `QuizClass` there is the get_numbers function which generates random integers for the quiz.
 * In `QuizClass` there is the find_gcf_result function to compare the user input to the correct answer.
+* In `QuizClass` there is the find_lcm_result function to compare the user input to the correct answer.
+* In `QuizClass` there is the find_pf_result function to compare the user input to the correct answer.
