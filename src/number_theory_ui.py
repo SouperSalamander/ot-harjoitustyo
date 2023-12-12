@@ -58,7 +58,7 @@ def see_history():
     hist_back = Button(history_frame, text = "BACK", command = lambda: clear_history_frame(hist_lbl,hist_back))
     hist_back.pack(pady = 3)
 
-def clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear):
+def clear_gcf_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear):
     gcf_test_entry.pack_forget()
     gcf_box_lbl.pack_forget()
     gcf_question_lbl.pack_forget()
@@ -88,7 +88,7 @@ def gcf_test_results(num1,num2,gcf_question_lbl,gcf_box_lbl,gcf_test_entry,back,
         gcf_test_answer_lbl.pack(pady = 3)
         back.pack()
         flag = 0
-        gcf_test_clear = Button(gcf_quiz_frame, text = "try again", command = lambda: clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
+        gcf_test_clear = Button(gcf_quiz_frame, text = "try again", command = lambda: clear_gcf_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
         gcf_test_clear.pack(pady = 3)
 
 def test_gcf():
@@ -110,7 +110,114 @@ def test_gcf():
     flag = 1
     gcf_test_answer_lbl = None
     gcf_test_clear = None
-    back = Button(gcf_quiz_frame, text = "back", command = lambda: clear_common_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
+    back = Button(gcf_quiz_frame, text = "back", command = lambda: clear_gcf_test_lbls(flag, gcf_test_entry,gcf_question_lbl,gcf_box_lbl,back,gcf_test_enter_btn,gcf_test_answer_lbl,gcf_test_clear))
+    back.pack(pady = 10)
+
+def clear_lcm_test_lbls(flag, lcm_test_entry,lcm_question_lbl,lcm_box_lbl,back,lcm_test_enter_btn,lcm_test_answer_lbl,lcm_test_clear):
+    lcm_test_entry.pack_forget()
+    lcm_box_lbl.pack_forget()
+    lcm_question_lbl.pack_forget()
+    back.pack_forget()
+    lcm_test_enter_btn.pack_forget()
+    lcm_test_entry
+    if flag == 1:
+        try_quiz()
+    else:
+        lcm_test_answer_lbl.pack_forget()
+        lcm_test_clear.pack_forget()
+        test_lcm()
+
+def lcm_test_results(num1,num2,lcm_question_lbl,lcm_box_lbl,lcm_test_entry,back,lcm_test_enter_btn,lcm_test_answer_lbl):
+    hide_words()
+    hide_frames()
+    lcm_quiz_frame.pack(fill = "both", expand = 1)
+    lcm_question_lbl.pack(pady = 3)
+    lcm_box_lbl.pack()
+    lcm_test_enter_btn.pack()
+    attempt = lcm_test_entry.get()
+    if EntryChecker(attempt).check_only_numbers() is False:
+        messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+    else:
+        correct_lcm = QuizClass(num1,num2,attempt).find_lcm_result()
+        lcm_test_answer_lbl = Label(lcm_quiz_frame, text = correct_lcm)
+        lcm_test_answer_lbl.pack(pady = 3)
+        back.pack()
+        flag = 0
+        lcm_test_clear = Button(lcm_quiz_frame, text = "try again", command = lambda: clear_lcm_test_lbls(flag, lcm_test_entry,lcm_question_lbl,lcm_box_lbl,back,lcm_test_enter_btn,lcm_test_answer_lbl,lcm_test_clear))
+        lcm_test_clear.pack(pady = 3)
+
+def test_lcm():
+    """user can answer questions about lcm"""
+    hide_words()
+    hide_frames()
+    lcm_quiz_frame.pack(fill = "both", expand = 1)
+    num1,num2 = QuizClass().get_numbers()
+    question = str(num1) + " , " + str(num2)
+    lcm_question_lbl = Label(lcm_quiz_frame, text = question, font = (None, 22))
+    lcm_question_lbl.pack(pady = 3)
+    lcm_box_lbl = Label(lcm_quiz_frame, text = "Lowest Common Multiple:")
+    lcm_box_lbl.pack()
+    lcm_test_entry = Entry(lcm_quiz_frame)
+    lcm_test_entry.pack()
+    attempt = lcm_test_entry.get()
+    lcm_test_enter_btn = Button(lcm_quiz_frame, text = "Enter", command = lambda: lcm_test_results(num1,num2,lcm_question_lbl,lcm_box_lbl,lcm_test_entry,back,lcm_test_enter_btn,lcm_test_answer_lbl))
+    lcm_test_enter_btn.pack(pady = 3)
+    flag = 1
+    lcm_test_answer_lbl = None
+    lcm_test_clear = None
+    back = Button(lcm_quiz_frame, text = "back", command = lambda: clear_lcm_test_lbls(flag, lcm_test_entry,lcm_question_lbl,lcm_box_lbl,back,lcm_test_enter_btn,lcm_test_answer_lbl,lcm_test_clear))
+    back.pack(pady = 10)
+
+def clear_pf_test_lbls(flag, pf_test_entry,pf_question_lbl,pf_box_lbl,back,pf_test_enter_btn,pf_test_answer_lbl,pf_test_clear):
+    pf_test_entry.pack_forget()
+    pf_box_lbl.pack_forget()
+    pf_question_lbl.pack_forget()
+    back.pack_forget()
+    pf_test_enter_btn.pack_forget()
+    pf_test_entry
+    if flag == 1:
+        try_quiz()
+    else:
+        pf_test_answer_lbl.pack_forget()
+        pf_test_clear.pack_forget()
+        test_pf()
+
+def pf_test_results(num1,pf_question_lbl,pf_box_lbl,pf_test_entry,back,pf_test_enter_btn,pf_test_answer_lbl):
+    hide_words()
+    hide_frames()
+    pf_quiz_frame.pack(fill = "both", expand = 1)
+    pf_question_lbl.pack(pady = 3)
+    pf_box_lbl.pack()
+    pf_test_enter_btn.pack()
+    attempt = pf_test_entry.get()
+    correct_pf = QuizClass(num1,None,attempt).find_pf_result()
+    pf_test_answer_lbl = Label(pf_quiz_frame, text = correct_pf)
+    pf_test_answer_lbl.pack(pady = 3)
+    back.pack()
+    flag = 0
+    pf_test_clear = Button(pf_quiz_frame, text = "try again", command = lambda: clear_pf_test_lbls(flag, pf_test_entry,pf_question_lbl,pf_box_lbl,back,pf_test_enter_btn,pf_test_answer_lbl,pf_test_clear))
+    pf_test_clear.pack(pady = 3)
+
+def test_pf():
+    """user can answer questions about pf"""
+    hide_words()
+    hide_frames()
+    pf_quiz_frame.pack(fill = "both", expand = 1)
+    num1,num2 = QuizClass().get_numbers()
+    question = str(num1)
+    pf_question_lbl = Label(pf_quiz_frame, text = question, font = (None, 22))
+    pf_question_lbl.pack(pady = 3)
+    pf_box_lbl = Label(pf_quiz_frame, text = "Prime Factorisation:")
+    pf_box_lbl.pack()
+    pf_test_entry = Entry(pf_quiz_frame)
+    pf_test_entry.pack()
+    attempt = pf_test_entry.get()
+    pf_test_enter_btn = Button(pf_quiz_frame, text = "Enter", command = lambda: pf_test_results(num1,pf_question_lbl,pf_box_lbl,pf_test_entry,back,pf_test_enter_btn,pf_test_answer_lbl))
+    pf_test_enter_btn.pack(pady = 3)
+    flag = 1
+    pf_test_answer_lbl = None
+    pf_test_clear = None
+    back = Button(pf_quiz_frame, text = "back", command = lambda: clear_pf_test_lbls(flag, pf_test_entry,pf_question_lbl,pf_box_lbl,back,pf_test_enter_btn,pf_test_answer_lbl,pf_test_clear))
     back.pack(pady = 10)
 
 def try_quiz():
@@ -253,6 +360,8 @@ def hide_frames():
     history_frame.pack_forget()
     quiz_frame.pack_forget()
     gcf_quiz_frame.pack_forget()
+    lcm_quiz_frame.pack_forget()
+    pf_quiz_frame.pack_forget()
 
 def hide_words():
     """clears words from the frames"""
@@ -303,6 +412,8 @@ if __name__ == "__main__":
     history_frame = Frame(root, width = 400, height = 400)
     quiz_frame = Frame(root, width = 400, height = 400)
     gcf_quiz_frame = Frame(root, width = 400, height = 400)
+    lcm_quiz_frame = Frame(root, width = 400, height = 400)
+    pf_quiz_frame = Frame(root, width = 400, height = 400)
 
     #login
     login_lbl = Label(login_frame, text = "Login", font = (None, 22))
@@ -449,6 +560,12 @@ if __name__ == "__main__":
 
     gcf_quiz_btn = Button(quiz_frame, text = "Greatest Common Factor", command = test_gcf)
     gcf_quiz_btn.pack(pady = 3)
+
+    lcm_quiz_btn = Button(quiz_frame, text = "Lowest Common Multiple", command = test_lcm)
+    lcm_quiz_btn.pack(pady = 3)
+
+    pf_quiz_btn = Button(quiz_frame, text = "Prime Factorisation", command = test_pf)
+    pf_quiz_btn.pack(pady = 3)
 
     quiz_back = Button(quiz_frame, text = "back", command = math_menu)
     quiz_back.pack(pady = 3)

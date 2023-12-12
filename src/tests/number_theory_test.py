@@ -128,13 +128,26 @@ class TestOperations(unittest.TestCase):
 
 class TestQuiz(unittest.TestCase):
     def setUp(self):
-        self.correct_answer = QuizClass(69,24,"3")
-        self.wrong_answer = QuizClass(12,18,"5")
+        self.correct_gcf_answer = QuizClass(69,24,"3")
+        self.wrong_gcf_answer = QuizClass(12,18,"5")
+        self.correct_lcm_answer = QuizClass(3,4,"12")
+        self.wrong_lcm_answer = QuizClass(3,4,"5")
+        self.correct_pf_answer = QuizClass(20,None,"2 2 5")
+        self.wrong_pf_answer = QuizClass(20,None,"2 5")
 
     def test_num_generator(self):
         self.assertTrue(1 <= int(QuizClass().get_numbers()[0]) <= 99)
         self.assertTrue(1 <= int(QuizClass().get_numbers()[1]) <= 99)
 
     def test_gcf_quiz(self):
-        self.assertEqual(self.correct_answer.find_gcf_result(), "Correct")
-        self.assertEqual(self.wrong_answer.find_gcf_result(), "Incorrect. Correct answer is: 6")
+        self.assertEqual(self.correct_gcf_answer.find_gcf_result(), "Correct")
+        self.assertEqual(self.wrong_gcf_answer.find_gcf_result(), "Incorrect. Correct answer is: 6")
+
+    def test_lcm_quiz(self):
+        self.assertEqual(self.correct_lcm_answer.find_lcm_result(), "Correct")
+        self.assertEqual(self.wrong_lcm_answer.find_lcm_result(), "Incorrect. Correct answer is: 12")
+
+    def test_pf_quiz(self):
+        self.assertEqual(self.correct_pf_answer.find_pf_result(), "Correct")
+        self.assertEqual(self.wrong_pf_answer.find_pf_result(), "Incorrect. Correct answer is: [2, 2, 5]")
+

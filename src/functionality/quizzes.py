@@ -1,5 +1,7 @@
 from random import randint
 from functionality.operations import GcfClass
+from functionality.operations import LcmClass
+from functionality.operations import PfClass
 
 class QuizClass():
     """gets question numbers for quizs"""
@@ -15,6 +17,7 @@ class QuizClass():
         return num1,num2
 
     def find_gcf_result(self):
+        """gets gcf answer and compares it to the users answer"""
         gcf_list = list(GcfClass(self.num1,self.num2).gcf().split(" "))
         m = len(gcf_list)
         gcf_is = gcf_list[m-1]
@@ -22,4 +25,30 @@ class QuizClass():
             return "Correct"
         incorrect_str = "Incorrect. Correct answer is: " + gcf_is
         return incorrect_str
+
+    def find_lcm_result(self):
+        """gets lcm answer and compares it to the users answer"""
+        lcm_list = list(LcmClass(self.num1,self.num2).lcm().split(" "))
+        m = len(lcm_list)
+        lcm_is = lcm_list[m-1]
+        if lcm_is == self.attempt:
+            return "Correct"
+        incorrect_str = "Incorrect. Correct answer is: " + lcm_is
+        return incorrect_str
+
+    def find_pf_result(self):
+        """gets pf answer and compares it to the users answer"""
+        pf_is = PfClass(self.num1).pf()
+        attempt = str(self.attempt).split(" ")
+        input_len = len(attempt)
+        if input_len != len(pf_is):
+            incorrect_str = "Incorrect. Correct answer is: " + str(pf_is)
+            return incorrect_str
+        for i in range(0, input_len-1):
+            if attempt[i] == str(pf_is[i]):
+                pass
+            else:
+                incorrect_str = "Incorrect. Correct answer is: " + str(pf_is)
+                return incorrect_str
+        return "Correct"
             
