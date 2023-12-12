@@ -3,7 +3,7 @@ from functionality.operations import *
 from functionality.file_useage import *
 from functionality.number_checks import *
 from functionality.search_history import *
-from functionality.quizes import *
+from functionality.quizzes import *
 from tkinter import *
 from tkinter import messagebox
 import os

@@ -3,7 +3,7 @@ import os
 from functionality.account_login import *
 from functionality.operations import *
 from functionality.number_checks import *
-from functionality.quizes import *
+from functionality.quizzes import *
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
@@ -137,4 +137,4 @@ class TestQuiz(unittest.TestCase):
 
     def test_gcf_quiz(self):
         self.assertEqual(self.correct_answer.find_gcf_result(), "Correct")
-        self.assertEqual(self.wrong_answer.find_gcf_result(), "Incorrect")
+        self.assertEqual(self.wrong_answer.find_gcf_result(), "Incorrect. Correct answer is: 6")
