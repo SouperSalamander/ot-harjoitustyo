@@ -50,8 +50,8 @@ This project is one that could be easily expanded on in a variety of ways. For e
       
 - [ ] Percentage increase/decrease.
 
-- [ ] An area to quiz the user on these topics.
+- [x] An area to quiz the user on these topics.
 
 - [ ] Quiz progress could be tracked over time.
   
-- [ ] Tthere could be a competative aspect against other users. This would be especially good in a school setting as it would really encourage young people to spend time practising these techniques.
+- [ ] There could be a competitive aspect against other users. This would be especially good in a school setting as it would really encourage young people to spend time practising these techniques.
