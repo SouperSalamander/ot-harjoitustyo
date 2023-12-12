@@ -25,7 +25,8 @@
 | 09/12/23 | 0.5 | new test |
 | 09/12/23 | 1 | usage instructions file creation |
 | 12/12/23 | 1 | file descriptions added to arkkitehtuuri file |
+| 12/12/23 | 2 | new functionality and tests |
 
 ## Total Time
 
-38 hours, 30 minutes
+40 hours, 30 minutes
