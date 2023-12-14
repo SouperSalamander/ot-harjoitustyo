@@ -6,9 +6,9 @@ from functionality.operations import PfClass
 class QuizClass():
     """gets question numbers for quizs"""
     def __init__(self,num1 = None ,num2 = None,attempt = None):
-        self.num1 = num1
-        self.num2 = num2
-        self.attempt = attempt
+        self.__num1 = num1
+        self.__num2 = num2
+        self.__attempt = attempt
 
     def get_numbers(self):
         """gets random numbers"""
@@ -18,28 +18,28 @@ class QuizClass():
 
     def find_gcf_result(self):
         """gets gcf answer and compares it to the users answer"""
-        gcf_list = list(GcfClass(self.num1,self.num2).gcf().split(" "))
+        gcf_list = list(GcfClass(self.__num1,self.__num2).gcf().split(" "))
         m = len(gcf_list)
         gcf_is = gcf_list[m-1]
-        if gcf_is == self.attempt:
+        if gcf_is == self.__attempt:
             return "Correct"
         incorrect_str = "Incorrect. Correct answer is: " + gcf_is
         return incorrect_str
 
     def find_lcm_result(self):
         """gets lcm answer and compares it to the users answer"""
-        lcm_list = list(LcmClass(self.num1,self.num2).lcm().split(" "))
+        lcm_list = list(LcmClass(self.__num1,self.__num2).lcm().split(" "))
         m = len(lcm_list)
         lcm_is = lcm_list[m-1]
-        if lcm_is == self.attempt:
+        if lcm_is == self.__attempt:
             return "Correct"
         incorrect_str = "Incorrect. Correct answer is: " + lcm_is
         return incorrect_str
 
     def find_pf_result(self):
         """gets pf answer and compares it to the users answer"""
-        pf_is = PfClass(self.num1).pf()
-        attempt = str(self.attempt).split(" ")
+        pf_is = PfClass(self.__num1).pf()
+        attempt = str(self.__attempt).split(" ")
         input_len = len(attempt)
         if input_len != len(pf_is):
             incorrect_str = "Incorrect. Correct answer is: " + str(pf_is)

@@ -4,13 +4,13 @@ import math
 class GcfClass:
     """class to carry out gcf"""
     def __init__(self, number1, number2):
-        self.number1 = number1
-        self.number2 = number2
+        self.__number1 = number1
+        self.__number2 = number2
 
     def gcf(self):
         """function to carry out gcf"""
-        first = int(self.number1)
-        second = int(self.number2)
+        first = int(self.__number1)
+        second = int(self.__number2)
         remainder = 1
         gcf_result = ""
         count = 0
@@ -34,13 +34,13 @@ class GcfClass:
 class LcmClass():
     """class to carry out lcm"""
     def __init__(self, number1, number2):
-        self.number1 = number1
-        self.number2 = number2
+        self.__number1 = number1
+        self.__number2 = number2
 
     def lcm(self):
         """function to carry out lcm"""
-        first = int(self.number1)
-        second = int(self.number2)
+        first = int(self.__number1)
+        second = int(self.__number2)
         gcf_list = list(GcfClass(first,second).gcf().split(" "))
         n = len(gcf_list)
         lcm_is = round((first*second)/(int(gcf_list[n-1])))
@@ -54,11 +54,11 @@ class LcmClass():
 class PfClass():
     """class for finding prime factors"""
     def __init__(self, first_num):
-        self.first_num = first_num
+        self.__first_num = first_num
 
     def pf(self):
         pf_list = []
-        n = int(self.first_num)
+        n = int(self.__first_num)
         while n % 2 == 0:
             pf_list.append(2)
             n = n / 2

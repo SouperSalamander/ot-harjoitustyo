@@ -9,6 +9,7 @@ from tkinter import messagebox
 import os
 import re
 import math
+import hashlib
 
 def gcf():
     """shows greatest common factor frame"""

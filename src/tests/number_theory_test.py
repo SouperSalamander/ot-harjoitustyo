@@ -134,6 +134,7 @@ class TestQuiz(unittest.TestCase):
         self.wrong_lcm_answer = QuizClass(3,4,"5")
         self.correct_pf_answer = QuizClass(20,None,"2 2 5")
         self.wrong_pf_answer = QuizClass(20,None,"2 5")
+        self.wrong_pf_answer_same_length = QuizClass(20,None,"2 3 4")
 
     def test_num_generator(self):
         self.assertTrue(1 <= int(QuizClass().get_numbers()[0]) <= 99)
@@ -150,4 +151,4 @@ class TestQuiz(unittest.TestCase):
     def test_pf_quiz(self):
         self.assertEqual(self.correct_pf_answer.find_pf_result(), "Correct")
         self.assertEqual(self.wrong_pf_answer.find_pf_result(), "Incorrect. Correct answer is: [2, 2, 5]")
-
+        self.assertEqual(self.wrong_pf_answer_same_length.find_pf_result(), "Incorrect. Correct answer is: [2, 2, 5]")
