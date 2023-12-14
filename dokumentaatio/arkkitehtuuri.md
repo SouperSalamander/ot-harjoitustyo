@@ -49,6 +49,8 @@ classDiagram
     - attempt: str
     + get_numbers() int
     + find_gcf_result() str
+    + find_lcm_result() str
+    + find_pf_result() str
   }
 
   class GcfClass {
@@ -134,10 +136,22 @@ sequenceDiagram
 
   Main->>+QuizClass: QuizClass().get_numbers()
   QuizClass-->>Main: 12, 56
-  Main->>+EntryChecker: EntryChecker(4).check_only_numbers()
+  Main->>+EntryChecker: EntryChecker("4").check_only_numbers()
   EntryChecker-->>-Main: True
-  Main->>QuizClass: QuizClass(12,56,4).find_gcf_result()
-  QuizClass-->>-Main: "correct"
+  Main->>QuizClass: QuizClass(12,56,"4").find_gcf_result()
+  QuizClass-->>-Main: "Correct"
+
+  Main->>+QuizClass: QuizClass().get_numbers()
+  QuizClass-->>Main: 3, 4
+  Main->>+EntryChecker: EntryChecker("10").check_only_numbers()
+  EntryChecker-->>-Main: True
+  Main->>QuizClass: QuizClass(3,4,"10").find_lcm_result()
+  QuizClass-->>-Main: "Incorrect. Correct answer is: 10"
+
+  Main->>+QuizClass: QuizClass().get_numbers()
+  QuizClass-->>Main: 10, 63
+  Main->>QuizClass: QuizClass(10,None,"2 5").find_pf_result()
+  QuizClass-->>-Main: "Correct"
 
 ```
 
