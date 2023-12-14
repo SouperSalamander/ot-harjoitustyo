@@ -41,7 +41,7 @@ From there they can press “clear” which will clear the frame of the current 
 
 ### After choosing “Test Yourself”:
 
-The user is taken to a page where they can choose the test topic. Currently the available topic is “Greatest Common Factor”. 
+The user is taken to a page where they can choose the test topic. Currently the available topics are “Greatest Common Factor”, "Lowest Common Multiple", and "Prime Factorisation". 
 This is selected by pressing the button with the same name.
 The user will then be given a random number theory question on the chosen topic. 
 The answer is typed into the entry box. 
