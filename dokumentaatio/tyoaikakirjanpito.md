@@ -28,7 +28,8 @@
 | 12/12/23 | 2 | new functionality and tests |
 | 14/12/23 | 0.25 | updates to documentation |
 | 14/12/23 | 2 | new tests and functionality |
+| 16/12/23 | 4 | docstrings, separating ui, functionality, and tests |
 
 ## Total Time
 
-42 hours, 45 minutes
+46 hours, 45 minutes
