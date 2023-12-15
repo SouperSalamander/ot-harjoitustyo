@@ -1,5 +1,6 @@
 import unittest
 import os
+import hashlib
 from functionality.account_login import *
 from functionality.operations import *
 from functionality.number_checks import *
@@ -11,12 +12,13 @@ class TestLogin(unittest.TestCase):
         self.bad_info = LoginClass("wrong","bad")
 
     def test_correct_login(self):
+        fake_password = "account".encode()
         if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
         with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
             file_object.write('0' + ',' + 'fake' + \
-            ',' + 'account' + '\n')
+            ',' + hashlib.sha256(fake_password).hexdigest() + '\n')
             file_object.close()
 
         self.assertEqual(self.good_info.login_check(), True)

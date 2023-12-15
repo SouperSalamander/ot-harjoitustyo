@@ -1,8 +1,13 @@
-"""makes sure user only gives suitable numbers"""
+"""file checks user inputs"""
 import re
 
 class EntryChecker:
-    """class to check entries are only numbers"""
+    """class to check entries are only numbers
+    
+    Attributes:
+        __first_entry
+    """
+
     def __init__(self, first_entry):
         self.__first_entry = first_entry
 
