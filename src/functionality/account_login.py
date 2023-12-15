@@ -12,8 +12,9 @@ class LoginClass():
 
     def login_check(self):
         """function compares user input to file"""
+        password_input = self.__passw.encode()
         real_pass = FileReader(self.__usern).find_existing_account()
-        if self.__passw == real_pass:
+        if hashlib.sha256(password_input).hexdigest() == real_pass:
             return True
         return False
 
@@ -36,6 +37,7 @@ class AccountCreation():
         if FileReader(self.__chosen_user).find_existing_account() is not None:
             return 4
         password = self.__password1.encode()
-        account_string = str(unique_id) + ',' + self.__chosen_user + ',' + str(hashlib.sha256(password))
+        account_string = str(unique_id) + ',' + self.__chosen_user + \
+        ',' + hashlib.sha256(password).hexdigest()
         FileEditor(account_string, None).add_new_account()
         return 0
