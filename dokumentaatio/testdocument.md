@@ -14,7 +14,7 @@ Most of these are unit tests however there are also some integration tests. Insi
 
 Not including the UI, the coverage is 80%.
 
-(picture here)
+![image](coverage80.png)
 
 The following situations were not tested:
 
