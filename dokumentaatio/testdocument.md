@@ -39,7 +39,7 @@ The application has been tested in the following situations:
 
 ### Functionality
 
-All the [specification document](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md) functionality and the features listed in the usage instructions (link) have been tested.
+All the [specification document](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md) functionality and the features listed in the [usage instructions](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/dokumentaatio/usageinstructions.md) have been tested.
 
 All input fields have been tested with valid, invalid, and empty input.
 
