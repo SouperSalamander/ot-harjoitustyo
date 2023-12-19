@@ -29,7 +29,9 @@
 | 14/12/23 | 0.25 | updates to documentation |
 | 14/12/23 | 2 | new tests and functionality |
 | 16/12/23 | 4 | docstrings, separating ui, functionality, and tests |
+| 17/12/23 | 3 | docstrings, fixing tkinter issues |
+| 18/12/23 | 2 | new test, adding error messages if an input is not suitable, test document |
 
 ## Total Time
 
-46 hours, 45 minutes
+51 hours, 45 minutes
