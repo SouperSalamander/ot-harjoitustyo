@@ -1,12 +1,29 @@
-"""number theory calculator"""
+"""File handles account file access."""
 import os
 
 class FileReader:
-    """class to return file content"""
+    """Class to return file content.
+    
+    Attributes:
+        __line_choice: the username input from user.
+    """
+
     def __init__(self, line_choice = None):
+        """Constructor, makes new file reader.
+        
+        Args:
+            line_choice: the username input from user.
+        """
+
         self.__line_choice = line_choice
 
     def find_next_id(self):
+        """Function finds the 0th element of the last line in the file.
+        
+        Returns:
+            Integer, any whole number more than zero.
+        """
+
         if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
@@ -23,6 +40,12 @@ class FileReader:
         return unique_id
 
     def find_existing_account(self):
+        """Function checks if an account is already present in the file.
+        
+        Returns:
+            String, if the account exists, otherwise None.
+        """
+
         if os.path.isfile('userAccounts.txt') is False:
             with open('userAccounts.txt','a', encoding = "utf-8") as file:
                 file.close()
@@ -35,6 +58,12 @@ class FileReader:
         return None
 
     def read_search_history(self):
+        """Function to create the search history.
+        
+        Returns:
+            String.
+        """
+
         hist_text = ""
         with open('userAccounts.txt', 'r', encoding = "utf-8") as l:
             for line in l:
@@ -47,19 +76,34 @@ class FileReader:
         return hist_text
 
 class FileEditor:
-    """class for file use"""
+    """Class for editing file contents. 
+    
+    Attributes:
+        __file_content: a string to be added to the file.
+        __location: the line in the file.
+    """
+
     def __init__(self, file_content,location):
+        """Constructor, creates new file editor.
+        
+        Args:
+            file_content: a string to be added to the file.
+            location: the line in the file.
+        """
+
         self.__file_content = file_content
         self.__location = location
 
     def add_new_account(self):
-        """funtion to change parts of file"""
+        """Funtion to add account details to the file."""
+
         with open('userAccounts.txt', 'a', encoding = "utf-8") as file_object:
             file_object.write(self.__file_content + '\n')
             file_object.close()
 
     def add_search_history(self):
-        """function adds the search history string to a specific line of the file"""
+        """Function adds the search history string to a specific line of the file."""
+
         user = self.__location
         with open('userAccounts.txt', 'r+', encoding = "utf-8") as l:
             data = l.readlines()

@@ -1,14 +1,32 @@
-"""number theory calculator"""
+"""File handling all operations."""
 import math
 
 class GcfClass:
-    """class to carry out gcf"""
+    """Class to carry out greatest common factor calculations.
+    
+    Attributes:
+        __number1: input from user.
+        __number2: input from user.
+    """
+
     def __init__(self, number1, number2):
+        """Constructor, makes new gcf object.
+        
+        Args:
+            number1: user input.
+            number2: user input.
+        """
+
         self.__number1 = number1
         self.__number2 = number2
 
     def gcf(self):
-        """function to carry out gcf"""
+        """Function to calculate Greates common Factor.
+        
+        Returns:
+            String containing step by step solution.
+        """
+
         first = int(self.__number1)
         second = int(self.__number2)
         remainder = 1
@@ -32,13 +50,31 @@ class GcfClass:
         return gcf_result
 
 class LcmClass():
-    """class to carry out lcm"""
+    """Class to carry out lowest common multiple calculations.
+    
+    Attributes:
+        __number1: user input.
+        __number2: user input.
+    """
+
     def __init__(self, number1, number2):
+        """Constructor, makes new lcm object.
+        
+        Args:
+            number1: user input.
+            number2: user input.
+        """
+
         self.__number1 = number1
         self.__number2 = number2
 
     def lcm(self):
-        """function to carry out lcm"""
+        """Function to calculate lcm.
+        
+        Returns:
+            String containing step by step solution.
+        """
+
         first = int(self.__number1)
         second = int(self.__number2)
         gcf_list = list(GcfClass(first,second).gcf().split(" "))
@@ -52,11 +88,28 @@ class LcmClass():
         return lcm_result
 
 class PfClass():
-    """class for finding prime factors"""
+    """Class for finding prime factors.
+    
+    Attributes:
+        __first_num: user input.
+    """
+
     def __init__(self, first_num):
+        """Constructor, makes new pf object.
+        
+        Args: 
+            first_num: user input.
+        """
+
         self.__first_num = first_num
 
     def pf(self):
+        """Function for pf.
+        
+        Returns:
+            List of prime factors
+        """
+
         pf_list = []
         n = int(self.__first_num)
         while n % 2 == 0:

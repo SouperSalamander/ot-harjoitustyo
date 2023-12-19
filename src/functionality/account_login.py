@@ -1,4 +1,4 @@
-"""file deals with user accounts"""
+"""File deals with user accounts."""
 import re
 import hashlib
 from functionality.file_useage import FileEditor
@@ -8,23 +8,23 @@ class LoginClass():
     """Class to check login details.
     
     Attributes:
-        __usern: the username input by the user
-        __passw: the password input by the user
+        __usern: the username input by the user.
+        __passw: the password input by the user.
     """
 
     def __init__(self, usern, passw):
         """Constructor, makes new login object.
 
         Args: 
-            usern: the username input by the user
-            passw: the password input by the user
+            usern: the username input by the user.
+            passw: the password input by the user.
         """
 
         self.__usern = usern
         self.__passw = passw
 
     def login_check(self):
-        """function compares username input to username stored in file.
+        """Function compares username input to username stored in file.
         
         Returns:
             True, if the username and password match the file, otherwise false.
@@ -40,18 +40,18 @@ class AccountCreation():
     """Class to create accounts.
     
     Attributes:
-        __chosen_user: users input username
-        __password1: users input password
-        __password2: users second input password
+        __chosen_user: users input username.
+        __password1: users input password.
+        __password2: users second input password.
     """
 
     def __init__(self, chosen_user, password1, password2):
         """Constructor, makes new create account object.
 
         Args:
-            chosen_user: users input username
-            password1: users input password
-            password2: users second input password
+            chosen_user: users input username.
+            password1: users input password.
+            password2: users second input password.
         """
 
         self.__chosen_user = chosen_user
@@ -59,7 +59,7 @@ class AccountCreation():
         self.__password2 = password2
 
     def account_check(self):
-        """function checks if the account meets requirements.
+        """Function checks if the account meets requirements.
         
         Returns:
             0, if the account meets the requirements, otherwise number 1 to 4 depending on issue.

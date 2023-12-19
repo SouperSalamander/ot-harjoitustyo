@@ -61,33 +61,44 @@ class UI():
         self.hist_back.pack(pady = 3)
 
     def clear_gcf_test_lbls(self,flag):
-        self.gcf_test_entry.pack_forget()
-        self.gcf_box_lbl.pack_forget()
-        self.gcf_question_lbl.pack_forget()
-        self.back.pack_forget()
-        self.gcf_test_enter_btn.pack_forget()
+        if hasattr(self, 'gcf_test_entry') is True:
+            self.gcf_test_entry.pack_forget()
+        if hasattr(self, 'gcf_box_lbl') is True:
+            self.gcf_box_lbl.pack_forget()
+        if hasattr(self, 'gcf_question_lbl') is True:
+            self.gcf_question_lbl.pack_forget()
+        if hasattr(self, 'back1') is True:
+            self.back1.pack_forget()
+        if hasattr(self, 'gcf_test_enter_btn') is True:
+            self.gcf_test_enter_btn.pack_forget()
+        if hasattr(self, 'gcf_test_answer_lbl') is True:
+            self.gcf_test_answer_lbl.pack_forget()
+        if hasattr(self, 'gcf_test_clear') is True:
+            self.gcf_test_clear.pack_forget()
+        if flag == 0:
+            self.test_gcf()
         if flag == 1:
             self.try_quiz()
-        else:
-            self.gcf_test_answer_lbl.pack_forget()
-            self.gcf_test_clear.pack_forget()
-            self.test_gcf()
 
     def gcf_test_results(self,num1,num2):
         self.hide_words()
         self.hide_frames()
         self.gcf_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2
+        self.clear_gcf_test_lbls(flag)
         self.gcf_question_lbl.pack(pady = 3)
         self.gcf_box_lbl.pack()
+        self.gcf_test_entry.pack()
         self.gcf_test_enter_btn.pack()
         attempt = self.gcf_test_entry.get()
         if EntryChecker(attempt).check_only_numbers() is False:
-            self.messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+            messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+            self.back1.pack()
         else:
             correct_gcf = QuizClass(num1,num2,attempt).find_gcf_result()
             self.gcf_test_answer_lbl = Label(self.gcf_quiz_frame, text = correct_gcf)
             self.gcf_test_answer_lbl.pack(pady = 3)
-            self.back.pack()
+            self.back1.pack()
             flag = 0
             self.gcf_test_clear = Button(self.gcf_quiz_frame, text = "try again", command = lambda: self.clear_gcf_test_lbls(flag))
             self.gcf_test_clear.pack(pady = 3)
@@ -97,6 +108,8 @@ class UI():
         self.hide_words()
         self.hide_frames()
         self.gcf_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2
+        self.clear_gcf_test_lbls(flag)
         num1,num2 = QuizClass().get_numbers()
         question = str(num1) + " , " + str(num2)
         self.gcf_question_lbl = Label(self.gcf_quiz_frame, text = question, font = (None, 22))
@@ -109,39 +122,48 @@ class UI():
         self.gcf_test_enter_btn = Button(self.gcf_quiz_frame, text = "Enter", command = lambda: self.gcf_test_results(num1,num2))
         self.gcf_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.gcf_test_answer_lbl = None
-        self.gcf_test_clear = None
-        self.back = Button(self.gcf_quiz_frame, text = "back", command = lambda: self.clear_gcf_test_lbls(flag))
-        self.back.pack(pady = 10)
+        self.back1 = Button(self.gcf_quiz_frame, text = "back", command = lambda: self.clear_gcf_test_lbls(flag))
+        self.back1.pack(pady = 10)
 
     def clear_lcm_test_lbls(self, flag):
-        self.lcm_test_entry.pack_forget()
-        self.lcm_box_lbl.pack_forget()
-        self.lcm_question_lbl.pack_forget()
-        self.back.pack_forget()
-        self.lcm_test_enter_btn.pack_forget()
+        if hasattr(self, 'lcm_test_entry') is True:
+            self.lcm_test_entry.pack_forget()
+        if hasattr(self, 'lcm_box_lbl') is True:
+            self.lcm_box_lbl.pack_forget()
+        if hasattr(self, 'lcm_question_lbl') is True:
+            self.lcm_question_lbl.pack_forget()
+        if hasattr(self, 'back2') is True:
+            self.back2.pack_forget()
+        if hasattr(self, 'lcm_test_enter_btn') is True:
+            self.lcm_test_enter_btn.pack_forget()
+        if hasattr(self, 'lcm_test_answer_lbl') is True:
+            self.lcm_test_answer_lbl.pack_forget()
+        if hasattr(self, 'lcm_test_clear') is True:
+            self.lcm_test_clear.pack_forget()
+        if flag == 0:
+            self.test_lcm()
         if flag == 1:
             self.try_quiz()
-        else:
-            self.lcm_test_answer_lbl.pack_forget()
-            self.lcm_test_clear.pack_forget()
-            self.test_lcm()
 
     def lcm_test_results(self, num1, num2):
         self.hide_words()
         self.hide_frames()
         self.lcm_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2 
+        self.clear_lcm_test_lbls(flag)
         self.lcm_question_lbl.pack(pady = 3)
         self.lcm_box_lbl.pack()
+        self.lcm_test_entry.pack()
         self.lcm_test_enter_btn.pack()
         attempt = self.lcm_test_entry.get()
         if EntryChecker(attempt).check_only_numbers() is False:
             messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+            self.back2.pack()
         else:
             correct_lcm = QuizClass(num1,num2,attempt).find_lcm_result()
             self.lcm_test_answer_lbl = Label(self.lcm_quiz_frame, text = correct_lcm)
             self.lcm_test_answer_lbl.pack(pady = 3)
-            self.back.pack()
+            self.back2.pack()
             flag = 0
             self.lcm_test_clear = Button(self.lcm_quiz_frame, text = "try again", command = lambda: self.clear_lcm_test_lbls(flag))
             self.lcm_test_clear.pack(pady = 3)
@@ -151,6 +173,8 @@ class UI():
         self.hide_words()
         self.hide_frames()
         self.lcm_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2
+        self.clear_lcm_test_lbls(flag)
         num1,num2 = QuizClass().get_numbers()
         question = str(num1) + " , " + str(num2)
         self.lcm_question_lbl = Label(self.lcm_quiz_frame, text = question, font = (None, 22))
@@ -163,51 +187,66 @@ class UI():
         self.lcm_test_enter_btn = Button(self.lcm_quiz_frame, text = "Enter", command = lambda: self.lcm_test_results(num1,num2))
         self.lcm_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.lcm_test_answer_lbl = None
-        self.lcm_test_clear = None
-        self.back = Button(self.lcm_quiz_frame, text = "back", command = lambda: self.clear_lcm_test_lbls(flag))
-        self.back.pack(pady = 10)
+        self.back2 = Button(self.lcm_quiz_frame, text = "back", command = lambda: self.clear_lcm_test_lbls(flag))
+        self.back2.pack(pady = 10)
 
     def clear_pf_test_lbls(self,flag):
-        self.pf_test_entry.pack_forget()
-        self.pf_box_lbl.pack_forget()
-        self.pf_question_lbl.pack_forget()
-        self.back.pack_forget()
-        self.pf_test_enter_btn.pack_forget()
-        self.pf_test_entry
+        if hasattr(self, 'pf_test_entry') is True:
+            self.pf_test_entry.pack_forget()
+        if hasattr(self, 'pf_box_lbl') is True:
+            self.pf_box_lbl.pack_forget()
+        if hasattr(self, 'pf_question_lbl') is True:
+            self.pf_question_lbl.pack_forget()
+        if hasattr(self, 'back3') is True:
+            self.back3.pack_forget()
+        if hasattr(self, 'pf_test_enter_btn') is True:
+            self.pf_test_enter_btn.pack_forget()
+        if hasattr(self, 'pf_test_answer_lbl') is True:
+            self.pf_test_answer_lbl.pack_forget()
+        if hasattr(self, 'pf_test_clear') is True:
+            self.pf_test_clear.pack_forget()
+        if flag == 0:
+            self.test_pf()
         if flag == 1:
             self.try_quiz()
-        else:
-            self.pf_test_answer_lbl.pack_forget()
-            self.pf_test_clear.pack_forget()
-            self.test_pf()
 
     def pf_test_results(self,num1):
         self.hide_words()
         self.hide_frames()
         self.pf_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2
+        self.clear_pf_test_lbls(flag)
         self.pf_question_lbl.pack(pady = 3)
         self.pf_box_lbl.pack()
+        self.pf_test_entry.pack()
         self.pf_test_enter_btn.pack()
         attempt = self.pf_test_entry.get()
-        correct_pf = QuizClass(num1,None,attempt).find_pf_result()
-        self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf)
-        self.pf_test_answer_lbl.pack(pady = 3)
-        self.back.pack()
-        flag = 0
-        self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", command = lambda: self.clear_pf_test_lbls(flag))
-        self.pf_test_clear.pack(pady = 3)
+        if len(attempt) == 0:
+            messagebox.showerror("Error", "answer can't be empty")
+            self.back3.pack()
+        else:
+            correct_pf = QuizClass(num1,None,attempt).find_pf_result()
+            self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf)
+            self.pf_test_answer_lbl.pack(pady = 3)
+            self.back3.pack()
+            flag = 0
+            self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", command = lambda: self.clear_pf_test_lbls(flag))
+            self.pf_test_clear.pack(pady = 3)
 
     def test_pf(self):
         """user can answer questions about pf"""
         self.hide_words()
         self.hide_frames()
         self.pf_quiz_frame.pack(fill = "both", expand = 1)
+        flag = 2
+        self.clear_pf_test_lbls(flag)
         num1,num2 = QuizClass().get_numbers()
+        if num1 == 1:
+            num1 += 1
         question = str(num1)
         self.pf_question_lbl = Label(self.pf_quiz_frame, text = question, font = (None, 22))
         self.pf_question_lbl.pack(pady = 3)
-        self.pf_box_lbl = Label(self.pf_quiz_frame, text = "Prime Factorisation:")
+        self.pf_box_lbl = Label(self.pf_quiz_frame, text = "List all Prime Factors (separated by spaces):")
         self.pf_box_lbl.pack()
         self.pf_test_entry = Entry(self.pf_quiz_frame)
         self.pf_test_entry.pack()
@@ -215,10 +254,8 @@ class UI():
         self.pf_test_enter_btn = Button(self.pf_quiz_frame, text = "Enter", command = lambda: self.pf_test_results(num1))
         self.pf_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.pf_test_answer_lbl = None
-        self.pf_test_clear = None
-        self.back = Button(self.pf_quiz_frame, text = "back", command = lambda: self.clear_pf_test_lbls(flag))
-        self.back.pack(pady = 10)
+        self.back3 = Button(self.pf_quiz_frame, text = "back", command = lambda: self.clear_pf_test_lbls(flag))
+        self.back3.pack(pady = 10)
 
     def try_quiz(self):
         """user can pick topic for quiz"""
@@ -233,14 +270,18 @@ class UI():
         self.hide_words()
         self.hide_frames()
         self.gcf_frame.pack(fill = "both", expand = 1)
-        self.gcf_add_answer.destroy()
+        if hasattr(self, 'gcf_add_answer') is True:
+            self.gcf_add_answer.destroy()
 
     def gcf_calculation(self):
         """shows gcf result"""
         num1 = self.gcf_entryBox1.get()
         num2 = self.gcf_entryBox2.get()
+        self.gcf_clear()
+        self.gcf_entryBox1.insert(0,num1)
+        self.gcf_entryBox2.insert(0,num2)
         if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
-            self.messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+            messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
         else:
             gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
             m = len(gcf_list)
@@ -258,14 +299,18 @@ class UI():
         self.hide_words()
         self.hide_frames()
         self.lcm_frame.pack(fill = "both", expand = 1)
-        self.lcm_add_answer.destroy()
+        if hasattr(self,'lcm_add_answer') is True:
+            self.lcm_add_answer.destroy()
 
     def lcm_calculation(self):
         """shows lcm results"""
         num1 = self.lcm_entryBox1.get()
         num2 = self.lcm_entryBox2.get()
+        self.lcm_clear()
+        self.lcm_entryBox1.insert(0,num1)
+        self.lcm_entryBox2.insert(0,num2)
         if EntryChecker(num1).check_only_numbers() is False or EntryChecker(num2).check_only_numbers() is False:
-            self.messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+            messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
         else:
             lcm_list = list(LcmClass(num1,num2).lcm().split(" "))
             m = len(lcm_list)
@@ -282,14 +327,19 @@ class UI():
         self.hide_words()
         self.hide_frames()
         self.pf_frame.pack(fill = "both", expand = 1)
-        self.pf_add_answer.destroy()
+        if hasattr(self,'pf_add_answer') is True:
+            self.pf_add_answer.destroy()
 
     def pf_calculation(self):
         """shows pf result"""
         num1 = self.pf_entryBox1.get()
         num2 = None
-        if EntryChecker(num1).check_only_numbers() is False:
-            self.messagebox.showerror("Error", "only accepts whole numbers more than zero (no spaces)")
+        self.pf_clear()
+        self.pf_entryBox1.insert(0,num1)
+        if num1 == '1':
+            messagebox.showerror("Error", "1 is not suitable for prime factorisation")
+        elif EntryChecker(num1).check_only_numbers() is False:
+            messagebox.showerror("Error", "only accepts whole numbers more than one (no spaces)")
         else:
             pf_list = PfClass(num1).pf()
             pf_is = " "
@@ -311,7 +361,7 @@ class UI():
         password = self.pass_entry.get()
         correct_details = LoginClass(user, password).login_check()
         if correct_details is False:
-            self.messagebox.showerror("Error", "Incorrect")
+            messagebox.showerror("Error", "Incorrect")
         else:
             self.math_menu()
 
@@ -320,17 +370,26 @@ class UI():
         username = self.userCreate_entry.get()
         pass1 = self.pass1_entry.get()
         pass2 = self.pass2_entry.get()
-        account_error_value = AccountCreation(username, pass1, pass2).account_check()
-        if account_error_value == 1:
-            self.messagebox.showerror("Error", "Passwords don't match")
-        if account_error_value == 2:
-            self.messagebox.showerror("Error", "Must contain a number")
-        if account_error_value == 3:
-            self.messagebox.showerror("Error", "Must contain a letter")
-        if account_error_value == 4:
-            self.messagebox.showerror("Error", "Account Already Exists")
-        if account_error_value == 0:
-            self.login()
+        if len(username) == 0:
+            messagebox.showerror("Error","Please enter a username.")
+        elif " " in username:
+            messagebox.showerror("Error","No spaces")
+        elif " " in pass1:
+            messagebox.showerror("Error","No spaces")
+        elif " " in pass2:
+            messagebox.showerror("Error","No spaces")
+        else:
+            account_error_value = AccountCreation(username, pass1, pass2).account_check()
+            if account_error_value == 1:
+                messagebox.showerror("Error", "Passwords don't match")
+            if account_error_value == 2:
+                messagebox.showerror("Error", "Must contain a number")
+            if account_error_value == 3:
+                messagebox.showerror("Error", "Must contain a letter")
+            if account_error_value == 4:
+                messagebox.showerror("Error", "Account Already Exists")
+            if account_error_value == 0:
+                self.login()
 
     def create_account(self):
         """shows the account creation frame"""
@@ -384,16 +443,17 @@ class UI():
         self.root = Tk()
         self.root.title("Number Theory")
         self.root.geometry("400x400")
+        self.root.config(bg = "pink")
 
-        self.welcome_lbl = Label(self.root, text = "Welcome", font = (None, 22))
+        self.welcome_lbl = Label(self.root, text = "Welcome", font = (None, 22), bg = "pink")
         self.welcome_lbl.pack()
 
         #creates login button
-        self.login_btn = Button(self.root, text = "Login", command = self.login)
+        self.login_btn = Button(self.root, text = "Login", bg = "light blue", command = self.login)
         self.login_btn.pack(pady = 3)
 
         #makes create account button
-        self.create_btn = Button(self.root, text = "Create Account", command = self.create_account)
+        self.create_btn = Button(self.root, text = "Create Account", bg = "light blue", command = self.create_account)
         self.create_btn.pack(pady = 3)
 
         #makes exit button
@@ -432,11 +492,8 @@ class UI():
         self.enter_btn = Button(self.login_frame, text = "Enter", command = self.enter_login)
         self.enter_btn.grid(row = 3, column = 1)
 
-        self.temp_btn = Button(self.login_frame, text = "TEMPORARY LOGIN BYPASS", command = self.math_menu)
-        self.temp_btn.grid(row = 4, column = 1)
-
-        self.back_btn = Button(self.login_frame, text = "BACK", command = self.back)
-        self.back_btn.grid(row = 4, column = 2)
+        self.back_btn_login = Button(self.login_frame, text = "BACK", command = self.back)
+        self.back_btn_login.grid(row = 4, column = 2)
 
         self.back_btn = Button(self.create_frame, text = "BACK", command = self.back)
         self.back_btn.grid(row = 5, column = 2)
