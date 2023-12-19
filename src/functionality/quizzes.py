@@ -77,7 +77,7 @@ class QuizClass():
         pf_is = PfClass(self.__num1).pf()
         attempt = str(self.__attempt).split(" ")
         input_len = len(attempt)
-        print(attempt)
+        swapped = False
         for i in range(input_len-1):
             for j in range(0,input_len-i-1):
                 if attempt[j] > attempt[j+1]:
