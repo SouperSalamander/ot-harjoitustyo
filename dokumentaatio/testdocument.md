@@ -28,7 +28,7 @@ All system tests were done manually.
 
 ### Installation and Configuration
 
-The app is downloaded and tested according to the instructions here (link).
+The app is downloaded and tested according to the instructions [here](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/README.md).
 
 All tests were done with the proper config.properties file present.
 
