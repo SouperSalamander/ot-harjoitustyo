@@ -112,9 +112,9 @@ class UI():
         self.clear_gcf_test_lbls(flag)
         num1,num2 = QuizClass().get_numbers()
         question = str(num1) + " , " + str(num2)
-        self.gcf_question_lbl = Label(self.gcf_quiz_frame, text = question, font = (None, 22))
+        self.gcf_question_lbl = Label(self.gcf_quiz_frame, text = question, font = (None, 22),bg = "#EAE0DA")
         self.gcf_question_lbl.pack(pady = 3)
-        self.gcf_box_lbl = Label(self.gcf_quiz_frame, text = "Greatest Common Factor:")
+        self.gcf_box_lbl = Label(self.gcf_quiz_frame, text = "Greatest Common Factor:",bg = "#EAE0DA")
         self.gcf_box_lbl.pack()
         self.gcf_test_entry = Entry(self.gcf_quiz_frame)
         self.gcf_test_entry.pack()
@@ -177,9 +177,9 @@ class UI():
         self.clear_lcm_test_lbls(flag)
         num1,num2 = QuizClass().get_numbers()
         question = str(num1) + " , " + str(num2)
-        self.lcm_question_lbl = Label(self.lcm_quiz_frame, text = question, font = (None, 22))
+        self.lcm_question_lbl = Label(self.lcm_quiz_frame, text = question, font = (None, 22),bg = "#EAE0DA")
         self.lcm_question_lbl.pack(pady = 3)
-        self.lcm_box_lbl = Label(self.lcm_quiz_frame, text = "Lowest Common Multiple:")
+        self.lcm_box_lbl = Label(self.lcm_quiz_frame, text = "Lowest Common Multiple:",bg = "#EAE0DA")
         self.lcm_box_lbl.pack()
         self.lcm_test_entry = Entry(self.lcm_quiz_frame)
         self.lcm_test_entry.pack()
@@ -244,9 +244,9 @@ class UI():
         if num1 == 1:
             num1 += 1
         question = str(num1)
-        self.pf_question_lbl = Label(self.pf_quiz_frame, text = question, font = (None, 22))
+        self.pf_question_lbl = Label(self.pf_quiz_frame, text = question, font = (None, 22),bg = "#EAE0DA")
         self.pf_question_lbl.pack(pady = 3)
-        self.pf_box_lbl = Label(self.pf_quiz_frame, text = "List all Prime Factors (separated by spaces):")
+        self.pf_box_lbl = Label(self.pf_quiz_frame, text = "List all Prime Factors (separated by spaces):",bg = "#EAE0DA")
         self.pf_box_lbl.pack()
         self.pf_test_entry = Entry(self.pf_quiz_frame)
         self.pf_test_entry.pack()
@@ -443,47 +443,47 @@ class UI():
         self.root = Tk()
         self.root.title("Number Theory")
         self.root.geometry("400x400")
-        self.root.config(bg = "pink")
+        self.root.config(bg = "#EAE0DA")
 
-        self.welcome_lbl = Label(self.root, text = "Welcome", font = (None, 22), bg = "pink")
+        self.welcome_lbl = Label(self.root, text = "Welcome", font = (None, 22), bg = "#EAE0DA")
         self.welcome_lbl.pack()
 
         #creates login button
-        self.login_btn = Button(self.root, text = "Login", bg = "light blue", command = self.login)
+        self.login_btn = Button(self.root, text = "Login", bg = "#D5E3E8", command = self.login)
         self.login_btn.pack(pady = 3)
 
         #makes create account button
-        self.create_btn = Button(self.root, text = "Create Account", bg = "light blue", command = self.create_account)
+        self.create_btn = Button(self.root, text = "Create Account", bg = "#D5E3E8", command = self.create_account)
         self.create_btn.pack(pady = 3)
 
         #makes exit button
-        self.exit_btn = Button(self.root, text = "Exit", command = self.exit_function)
+        self.exit_btn = Button(self.root, text = "Exit", bg = "#EAC7C7", command = self.exit_function)
         self.exit_btn.pack(pady = 3)
 
         #creats the different frames
-        self.create_frame = Frame(self.root, width = 400, height = 400)
-        self.login_frame = Frame(self.root, width = 400, height = 400)
-        self.menu_frame = Frame(self.root, width = 400, height = 400)
-        self.gcf_frame = Frame(self.root, width = 400, height = 400)
-        self.lcm_frame = Frame(self.root, width = 400, height = 400)
-        self.pf_frame = Frame(self.root, width = 400, height = 400)
-        self.history_frame = Frame(self.root, width = 400, height = 400)
-        self.quiz_frame = Frame(self.root, width = 400, height = 400)
-        self.gcf_quiz_frame = Frame(self.root, width = 400, height = 400)
-        self.lcm_quiz_frame = Frame(self.root, width = 400, height = 400)
-        self.pf_quiz_frame = Frame(self.root, width = 400, height = 400)
+        self.create_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.login_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.menu_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.gcf_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.lcm_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.pf_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.history_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.quiz_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.gcf_quiz_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.lcm_quiz_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
+        self.pf_quiz_frame = Frame(self.root, width = 400, height = 400,bg = "#EAE0DA")
 
         #login
-        self.login_lbl = Label(self.login_frame, text = "Login", font = (None, 22))
+        self.login_lbl = Label(self.login_frame, text = "Login", font = (None, 22),bg = "#EAE0DA")
         self.login_lbl.grid(row = 0, column = 1)
 
-        self.lbl_username = Label(self.login_frame, text = "Username:")
+        self.lbl_username = Label(self.login_frame, text = "Username:",bg = "#EAE0DA")
         self.lbl_username.grid(row = 1, column = 0)
 
         self.user_entry = Entry(self.login_frame)
         self.user_entry.grid(row = 1, column = 1)
 
-        self.lbl_password = Label(self.login_frame, text = "Password:")
+        self.lbl_password = Label(self.login_frame, text = "Password:",bg = "#EAE0DA")
         self.lbl_password.grid(row = 2, column = 0)
 
         self.pass_entry = Entry(self.login_frame, show = "*")
@@ -499,22 +499,22 @@ class UI():
         self.back_btn.grid(row = 5, column = 2)
 
         #create account
-        self.create_lbl = Label(self.create_frame, text = "Create Account", font = (None, 22))
+        self.create_lbl = Label(self.create_frame, text = "Create Account", font = (None, 22),bg = "#EAE0DA")
         self.create_lbl.grid(row = 0, column = 1)
 
-        self.userCreate = Label(self.create_frame, text = "Create Username:")
+        self.userCreate = Label(self.create_frame, text = "Create Username:",bg = "#EAE0DA")
         self.userCreate.grid(row = 1, column = 0)
 
         self.userCreate_entry = Entry(self.create_frame)
         self.userCreate_entry.grid(row = 1, column = 1)
 
-        self.pass1_lbl = Label(self.create_frame, text = "Create Password:")
+        self.pass1_lbl = Label(self.create_frame, text = "Create Password:",bg = "#EAE0DA")
         self.pass1_lbl.grid(row = 2, column = 0)
 
         self.pass1_entry = Entry(self.create_frame, show = "*")
         self.pass1_entry.grid(row = 2, column = 1)
 
-        self.pass2_lbl = Label(self.create_frame, text = "Confirm Password:")
+        self.pass2_lbl = Label(self.create_frame, text = "Confirm Password:",bg = "#EAE0DA")
         self.pass2_lbl.grid(row = 3, column = 0)
 
         self.pass2_entry = Entry(self.create_frame, show = "*")
@@ -524,7 +524,7 @@ class UI():
         self.enter_btn.grid(row = 4, column = 1)
 
         #math menu
-        self.menu_lbl = Label(self.menu_frame, text = "Menu", font = (None, 22))
+        self.menu_lbl = Label(self.menu_frame, text = "Menu", font = (None, 22),bg = "#EAE0DA")
         self.menu_lbl.pack()
 
         self.gcf_btn = Button(self.menu_frame, text = "Greatest Common Factor", command = self.gcf)
@@ -546,16 +546,16 @@ class UI():
         self.logOut_btn.pack(pady = 3)
 
         #gcf frame
-        self.gcf_lbl = Label(self.gcf_frame, text = "Greatest Common Factor")
+        self.gcf_lbl = Label(self.gcf_frame, text = "Greatest Common Factor",bg = "#EAE0DA")
         self.gcf_lbl.grid(row = 1, column = 1, columnspan = 2)
 
-        self.gcf_first_lbl = Label(self.gcf_frame, text = "first number: ")
+        self.gcf_first_lbl = Label(self.gcf_frame, text = "first number: ",bg = "#EAE0DA")
         self.gcf_first_lbl.grid(row = 2, column = 1)
 
         self.gcf_entryBox1 = Entry(self.gcf_frame)
         self.gcf_entryBox1.grid(row = 2, column = 2)
 
-        self.gcf_second_lbl = Label(self.gcf_frame, text = "second number: ")
+        self.gcf_second_lbl = Label(self.gcf_frame, text = "second number: ",bg = "#EAE0DA")
         self.gcf_second_lbl.grid(row = 3, column = 1)
 
         self.gcf_entryBox2 = Entry(self.gcf_frame)
@@ -568,16 +568,16 @@ class UI():
         self.gcf_back.grid(row = 5, column = 3)
 
         #lcm frame
-        self.lcm_lbl = Label(self.lcm_frame, text = "Lowest Common Multiple")
+        self.lcm_lbl = Label(self.lcm_frame, text = "Lowest Common Multiple",bg = "#EAE0DA")
         self.lcm_lbl.grid(row = 1, column = 1, columnspan = 2)
 
-        self.lcm_first_lbl = Label(self.lcm_frame, text = "first number: ")
+        self.lcm_first_lbl = Label(self.lcm_frame, text = "first number: ",bg = "#EAE0DA")
         self.lcm_first_lbl.grid(row = 2, column = 1)
 
         self.lcm_entryBox1 = Entry(self.lcm_frame)
         self.lcm_entryBox1.grid(row = 2, column = 2)
 
-        self.lcm_second_lbl = Label(self.lcm_frame, text = "second number: ")
+        self.lcm_second_lbl = Label(self.lcm_frame, text = "second number: ",bg = "#EAE0DA")
         self.lcm_second_lbl.grid(row = 3, column = 1)
 
         self.lcm_entryBox2 = Entry(self.lcm_frame)
@@ -590,10 +590,10 @@ class UI():
         self.lcm_back.grid(row = 5, column = 3)
 
         #pf frame
-        self.pf_lbl = Label(self.pf_frame, text = "Prime Factorisation")
+        self.pf_lbl = Label(self.pf_frame, text = "Prime Factorisation",bg = "#EAE0DA")
         self.pf_lbl.grid(row = 1, column = 1, columnspan = 2)
 
-        self.pf_first_lbl = Label(self.pf_frame, text = "enter number: ")
+        self.pf_first_lbl = Label(self.pf_frame, text = "enter number: ",bg = "#EAE0DA")
         self.pf_first_lbl.grid(row = 2, column = 1)
 
         self.pf_entryBox1 = Entry(self.pf_frame)
@@ -606,11 +606,11 @@ class UI():
         self.pf_back.grid(row = 4, column = 3)
 
         #history frame
-        self.hist_title_lbl = Label(self.history_frame, text = "Search History", font = (None, 22))
+        self.hist_title_lbl = Label(self.history_frame, text = "Search History", font = (None, 22),bg = "#EAE0DA")
         self.hist_title_lbl.pack(pady = 3)
 
         #quiz menu
-        self.quiz_title_lbl = Label(self.quiz_frame, text = "Test your Knowledge", font = (None, 22))
+        self.quiz_title_lbl = Label(self.quiz_frame, text = "Test your Knowledge", font = (None, 22),bg = "#EAE0DA")
         self.quiz_title_lbl.pack(pady = 3)
 
         self.gcf_quiz_btn = Button(self.quiz_frame, text = "Greatest Common Factor", command = self.test_gcf)
