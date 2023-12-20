@@ -55,9 +55,9 @@ class UI():
         self.hide_frames()
         self.history_frame.pack(fill = "both", expand = 1)
         history_text = FileReader(self.user_entry.get()).read_search_history()
-        self.hist_lbl = Label(self.history_frame, text = history_text)
+        self.hist_lbl = Label(self.history_frame, text = history_text,bg = "#EAE0DA")
         self.hist_lbl.pack(pady = 3)
-        self.hist_back = Button(self.history_frame, text = "BACK", command = lambda: self.clear_history_frame())
+        self.hist_back = Button(self.history_frame, text = "back", bg = "#EAC7C7", command = lambda: self.clear_history_frame())
         self.hist_back.pack(pady = 3)
 
     def clear_gcf_test_lbls(self,flag):
@@ -96,11 +96,11 @@ class UI():
             self.back1.pack()
         else:
             correct_gcf = QuizClass(num1,num2,attempt).find_gcf_result()
-            self.gcf_test_answer_lbl = Label(self.gcf_quiz_frame, text = correct_gcf)
+            self.gcf_test_answer_lbl = Label(self.gcf_quiz_frame, text = correct_gcf,bg = "#EAE0DA")
             self.gcf_test_answer_lbl.pack(pady = 3)
             self.back1.pack()
             flag = 0
-            self.gcf_test_clear = Button(self.gcf_quiz_frame, text = "try again", command = lambda: self.clear_gcf_test_lbls(flag))
+            self.gcf_test_clear = Button(self.gcf_quiz_frame, text = "try again", bg = "#D5E3E8", command = lambda: self.clear_gcf_test_lbls(flag))
             self.gcf_test_clear.pack(pady = 3)
 
     def test_gcf(self):
@@ -119,10 +119,10 @@ class UI():
         self.gcf_test_entry = Entry(self.gcf_quiz_frame)
         self.gcf_test_entry.pack()
         attempt = self.gcf_test_entry.get()
-        self.gcf_test_enter_btn = Button(self.gcf_quiz_frame, text = "Enter", command = lambda: self.gcf_test_results(num1,num2))
+        self.gcf_test_enter_btn = Button(self.gcf_quiz_frame, text = "Enter", bg = "#D5E3E8", command = lambda: self.gcf_test_results(num1,num2))
         self.gcf_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.back1 = Button(self.gcf_quiz_frame, text = "back", command = lambda: self.clear_gcf_test_lbls(flag))
+        self.back1 = Button(self.gcf_quiz_frame, text = "back", bg = "#EAC7C7", command = lambda: self.clear_gcf_test_lbls(flag))
         self.back1.pack(pady = 10)
 
     def clear_lcm_test_lbls(self, flag):
@@ -161,11 +161,11 @@ class UI():
             self.back2.pack()
         else:
             correct_lcm = QuizClass(num1,num2,attempt).find_lcm_result()
-            self.lcm_test_answer_lbl = Label(self.lcm_quiz_frame, text = correct_lcm)
+            self.lcm_test_answer_lbl = Label(self.lcm_quiz_frame, text = correct_lcm,bg = "#EAE0DA")
             self.lcm_test_answer_lbl.pack(pady = 3)
             self.back2.pack()
             flag = 0
-            self.lcm_test_clear = Button(self.lcm_quiz_frame, text = "try again", command = lambda: self.clear_lcm_test_lbls(flag))
+            self.lcm_test_clear = Button(self.lcm_quiz_frame, text = "try again", bg = "#D5E3E8", command = lambda: self.clear_lcm_test_lbls(flag))
             self.lcm_test_clear.pack(pady = 3)
 
     def test_lcm(self):
@@ -184,10 +184,10 @@ class UI():
         self.lcm_test_entry = Entry(self.lcm_quiz_frame)
         self.lcm_test_entry.pack()
         attempt = self.lcm_test_entry.get()
-        self.lcm_test_enter_btn = Button(self.lcm_quiz_frame, text = "Enter", command = lambda: self.lcm_test_results(num1,num2))
+        self.lcm_test_enter_btn = Button(self.lcm_quiz_frame, text = "Enter", bg = "#D5E3E8", command = lambda: self.lcm_test_results(num1,num2))
         self.lcm_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.back2 = Button(self.lcm_quiz_frame, text = "back", command = lambda: self.clear_lcm_test_lbls(flag))
+        self.back2 = Button(self.lcm_quiz_frame, text = "back", bg = "#EAC7C7", command = lambda: self.clear_lcm_test_lbls(flag))
         self.back2.pack(pady = 10)
 
     def clear_pf_test_lbls(self,flag):
@@ -226,11 +226,11 @@ class UI():
             self.back3.pack()
         else:
             correct_pf = QuizClass(num1,None,attempt).find_pf_result()
-            self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf)
+            self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf,bg = "#EAE0DA")
             self.pf_test_answer_lbl.pack(pady = 3)
             self.back3.pack()
             flag = 0
-            self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", command = lambda: self.clear_pf_test_lbls(flag))
+            self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", bg = "#D5E3E8", command = lambda: self.clear_pf_test_lbls(flag))
             self.pf_test_clear.pack(pady = 3)
 
     def test_pf(self):
@@ -251,10 +251,10 @@ class UI():
         self.pf_test_entry = Entry(self.pf_quiz_frame)
         self.pf_test_entry.pack()
         attempt = self.pf_test_entry.get()
-        self.pf_test_enter_btn = Button(self.pf_quiz_frame, text = "Enter", command = lambda: self.pf_test_results(num1))
+        self.pf_test_enter_btn = Button(self.pf_quiz_frame, text = "Enter", bg = "#D5E3E8", command = lambda: self.pf_test_results(num1))
         self.pf_test_enter_btn.pack(pady = 3)
         flag = 1
-        self.back3 = Button(self.pf_quiz_frame, text = "back", command = lambda: self.clear_pf_test_lbls(flag))
+        self.back3 = Button(self.pf_quiz_frame, text = "back", bg = "#EAC7C7", command = lambda: self.clear_pf_test_lbls(flag))
         self.back3.pack(pady = 10)
 
     def try_quiz(self):
@@ -286,9 +286,9 @@ class UI():
             gcf_list = list(GcfClass(num1,num2).gcf().split(" "))
             m = len(gcf_list)
             gcf_is = gcf_list[m-1]
-            self.gcf_add_answer = Label(self.gcf_frame, text = GcfClass(num1,num2).gcf())
+            self.gcf_add_answer = Label(self.gcf_frame, text = GcfClass(num1,num2).gcf(),bg = "#EAE0DA")
             self.gcf_add_answer.grid(row = 6, column = 1, columnspan = 2)
-            self.gcf_clear_frame = Button(self.gcf_frame, text = "clear", command = lambda: self.gcf_clear())
+            self.gcf_clear_frame = Button(self.gcf_frame, text = "clear", bg = "#EAC7C7", command = lambda: self.gcf_clear())
             self.gcf_clear_frame.grid(row = 4, column = 3)
             SearchHistory(self.user_entry.get(),num1,num2,gcf_is, "gcf: ").edit_hist()
 
@@ -315,9 +315,9 @@ class UI():
             lcm_list = list(LcmClass(num1,num2).lcm().split(" "))
             m = len(lcm_list)
             lcm_is = lcm_list[m-1]
-            self.lcm_add_answer = Label(self.lcm_frame, text = LcmClass(num1,num2).lcm())
+            self.lcm_add_answer = Label(self.lcm_frame, text = LcmClass(num1,num2).lcm(),bg = "#EAE0DA")
             self.lcm_add_answer.grid(row = 6, column = 1, columnspan = 2)
-            self.lcm_clear_frame = Button(self.lcm_frame, text = "clear", command = lambda: self.lcm_clear())
+            self.lcm_clear_frame = Button(self.lcm_frame, text = "clear", bg = "#EAC7C7", command = lambda: self.lcm_clear())
             self.lcm_clear_frame.grid(row = 4, column = 3)
             SearchHistory(self.user_entry.get(),num1,num2,lcm_is, "lcm: ").edit_hist()
 
@@ -349,9 +349,9 @@ class UI():
                 else:
                     pf_is = pf_is + str(pf_list[i])
             pf_is = pf_is + " = " + num1
-            self.pf_add_answer = Label(self.pf_frame, text = pf_is)
+            self.pf_add_answer = Label(self.pf_frame, text = pf_is,bg = "#EAE0DA")
             self.pf_add_answer.grid(row = 6, column = 1, columnspan = 2)
-            self.pf_clear_frame = Button(self.pf_frame, text = "clear", command = lambda: self.pf_clear())
+            self.pf_clear_frame = Button(self.pf_frame, text = "clear", bg = "#EAC7C7", command = lambda: self.pf_clear())
             self.pf_clear_frame.grid(row = 3, column = 3)
             SearchHistory(self.user_entry.get(),num1,num2,pf_is, "pf:").edit_hist()
 
@@ -489,13 +489,13 @@ class UI():
         self.pass_entry = Entry(self.login_frame, show = "*")
         self.pass_entry.grid(row = 2, column = 1)
 
-        self.enter_btn = Button(self.login_frame, text = "Enter", command = self.enter_login)
+        self.enter_btn = Button(self.login_frame, text = "Enter", bg = "#D5E3E8", command = self.enter_login)
         self.enter_btn.grid(row = 3, column = 1)
 
-        self.back_btn_login = Button(self.login_frame, text = "BACK", command = self.back)
+        self.back_btn_login = Button(self.login_frame, text = "back", bg = "#EAC7C7", command = self.back)
         self.back_btn_login.grid(row = 4, column = 2)
 
-        self.back_btn = Button(self.create_frame, text = "BACK", command = self.back)
+        self.back_btn = Button(self.create_frame, text = "back", bg = "#EAC7C7", command = self.back)
         self.back_btn.grid(row = 5, column = 2)
 
         #create account
@@ -520,29 +520,29 @@ class UI():
         self.pass2_entry = Entry(self.create_frame, show = "*")
         self.pass2_entry.grid(row = 3, column = 1)
 
-        self.enter_btn = Button(self.create_frame, text = "Enter", command = self.enter_create)
+        self.enter_btn = Button(self.create_frame, text = "Enter", bg = "#D5E3E8", command = self.enter_create)
         self.enter_btn.grid(row = 4, column = 1)
 
         #math menu
         self.menu_lbl = Label(self.menu_frame, text = "Menu", font = (None, 22),bg = "#EAE0DA")
         self.menu_lbl.pack()
 
-        self.gcf_btn = Button(self.menu_frame, text = "Greatest Common Factor", command = self.gcf)
+        self.gcf_btn = Button(self.menu_frame, text = "Greatest Common Factor", bg = "#D5E3E8", command = self.gcf)
         self.gcf_btn.pack(pady = 3)
 
-        self.lcm_btn = Button(self.menu_frame, text = "Lowest Common Multiple", command = self.lcm)
+        self.lcm_btn = Button(self.menu_frame, text = "Lowest Common Multiple", bg = "#D5E3E8", command = self.lcm)
         self.lcm_btn.pack(pady = 3)
 
-        self.pf_btn = Button(self.menu_frame, text = "Prime Factorisation", command = self.pf)
+        self.pf_btn = Button(self.menu_frame, text = "Prime Factorisation", bg = "#D5E3E8", command = self.pf)
         self.pf_btn.pack(pady = 3)
 
-        self.quiz_btn = Button(self.menu_frame, text = "Test Yourself", command = self.try_quiz)
+        self.quiz_btn = Button(self.menu_frame, text = "Test Yourself", bg = "#D5E3E8", command = self.try_quiz)
         self.quiz_btn.pack(pady = 3)
 
-        self.history_btn = Button(self.menu_frame, text = "Search History", command = self.see_history)
+        self.history_btn = Button(self.menu_frame, text = "Search History", bg = "#D5E3E8", command = self.see_history)
         self.history_btn.pack(pady = 3)
 
-        self.logOut_btn = Button(self.menu_frame, text = "Log Out", command = self.back)
+        self.logOut_btn = Button(self.menu_frame, text = "Log Out", bg = "#EAC7C7", command = self.back)
         self.logOut_btn.pack(pady = 3)
 
         #gcf frame
@@ -561,10 +561,10 @@ class UI():
         self.gcf_entryBox2 = Entry(self.gcf_frame)
         self.gcf_entryBox2.grid(row = 3, column = 2)
 
-        self.gcf_enter = Button(self.gcf_frame, text = "Calculate", width = 30, command = self.gcf_calculation)
+        self.gcf_enter = Button(self.gcf_frame, text = "Calculate", bg = "#D5E3E8", width = 30, command = self.gcf_calculation)
         self.gcf_enter.grid(row = 4, column = 1, columnspan = 2)
 
-        self.gcf_back = Button(self.gcf_frame, text = "back", command = self.math_menu)
+        self.gcf_back = Button(self.gcf_frame, text = "back", bg = "#EAC7C7", command = self.math_menu)
         self.gcf_back.grid(row = 5, column = 3)
 
         #lcm frame
@@ -583,10 +583,10 @@ class UI():
         self.lcm_entryBox2 = Entry(self.lcm_frame)
         self.lcm_entryBox2.grid(row = 3, column = 2)
 
-        self.lcm_enter = Button(self.lcm_frame, text = "Calculate", width = 30, command = self.lcm_calculation)
+        self.lcm_enter = Button(self.lcm_frame, text = "Calculate", bg = "#D5E3E8", width = 30, command = self.lcm_calculation)
         self.lcm_enter.grid(row = 4, column = 1, columnspan = 2)
 
-        self.lcm_back = Button(self.lcm_frame, text = "back", command = self.math_menu)
+        self.lcm_back = Button(self.lcm_frame, text = "back", bg = "#EAC7C7", command = self.math_menu)
         self.lcm_back.grid(row = 5, column = 3)
 
         #pf frame
@@ -599,10 +599,10 @@ class UI():
         self.pf_entryBox1 = Entry(self.pf_frame)
         self.pf_entryBox1.grid(row = 2, column = 2)
 
-        self.pf_enter = Button(self.pf_frame, text = "Calculate", width = 30, command = self.pf_calculation)
+        self.pf_enter = Button(self.pf_frame, text = "Calculate", bg = "#D5E3E8", width = 30, command = self.pf_calculation)
         self.pf_enter.grid(row = 3, column = 1, columnspan = 2)
 
-        self.pf_back = Button(self.pf_frame, text = "back", command = self.math_menu)
+        self.pf_back = Button(self.pf_frame, text = "back", bg = "#EAC7C7", command = self.math_menu)
         self.pf_back.grid(row = 4, column = 3)
 
         #history frame
@@ -613,16 +613,16 @@ class UI():
         self.quiz_title_lbl = Label(self.quiz_frame, text = "Test your Knowledge", font = (None, 22),bg = "#EAE0DA")
         self.quiz_title_lbl.pack(pady = 3)
 
-        self.gcf_quiz_btn = Button(self.quiz_frame, text = "Greatest Common Factor", command = self.test_gcf)
+        self.gcf_quiz_btn = Button(self.quiz_frame, text = "Greatest Common Factor", bg = "#D5E3E8", command = self.test_gcf)
         self.gcf_quiz_btn.pack(pady = 3)
 
-        self.lcm_quiz_btn = Button(self.quiz_frame, text = "Lowest Common Multiple", command = self.test_lcm)
+        self.lcm_quiz_btn = Button(self.quiz_frame, text = "Lowest Common Multiple", bg = "#D5E3E8", command = self.test_lcm)
         self.lcm_quiz_btn.pack(pady = 3)
 
-        self.pf_quiz_btn = Button(self.quiz_frame, text = "Prime Factorisation", command = self.test_pf)
+        self.pf_quiz_btn = Button(self.quiz_frame, text = "Prime Factorisation", bg = "#D5E3E8", command = self.test_pf)
         self.pf_quiz_btn.pack(pady = 3)
 
-        self.quiz_back = Button(self.quiz_frame, text = "back", command = self.math_menu)
+        self.quiz_back = Button(self.quiz_frame, text = "back", bg = "#EAC7C7", command = self.math_menu)
         self.quiz_back.pack(pady = 3)
 
         self.root.mainloop()
