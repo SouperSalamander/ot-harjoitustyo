@@ -29,3 +29,9 @@
 * In `QuizClass` there is the find_gcf_result function to compare the user input to the correct answer.
 * In `QuizClass` there is the find_lcm_result function to compare the user input to the correct answer.
 * In `QuizClass` there is the find_pf_result function to compare the user input to the correct answer.
+
+## Week 7
+
+* When a new account is created the password is encrypted before being saved to the `userAccounts` file.
+* The user interface has been made more aesthetically pleasing.
+* The user will be shown useful error messages if any of their inputs are not suitable.
