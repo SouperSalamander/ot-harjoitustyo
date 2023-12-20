@@ -30,8 +30,6 @@ All system tests were done manually.
 
 The app is downloaded and tested according to the instructions [here](https://github.com/SouperSalamander/ot-harjoitustyo/blob/main/README.md#instructions).
 
-All tests were done with the proper config.properties file present.
-
 The application has been tested in the following situations:
 
 - The userAccounts file was missing, and the program created it itself.
