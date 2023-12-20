@@ -81,21 +81,17 @@ classDiagram
 
 ```
 
-# Sequence Diagram
+# Sequence Diagrams
+
+## Creating an account and logging into the program
 
 ```mermaid
 sequenceDiagram
   participant Main
   participant AccountCreation
   participant LoginClass
-  participant EntryChecker
-  participant GcfClass
-  participant LcmClass
-  participant PfClass
-  participant SearchHistory
   participant FileReader
   participant FileEditor
-  participant QuizClass
 
   Main->>+AccountCreation: AccountCreation("rose" , "tyler2", "tyler2").account_check()
   AccountCreation->>+FileReader: FileReader().find_next_id()
@@ -110,29 +106,95 @@ sequenceDiagram
   FileReader-->>-LoginClass: "tyler2"
   LoginClass-->>-Main: True
 
-  Main->>+EntryChecker: EntryChecker(12).check_only_numbers()
-  EntryChecker-->>-Main: True
+```
+
+## Calculating GCF and the search history updating
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant EntryChecker
+  participant GcfClass
+  participant SearchHistory
+  participant FileEditor
 
   Main->>+GcfClass: GcfClass(12,18).gcf()
+  Main->>+EntryChecker: EntryChecker(12).check_only_numbers()
+  EntryChecker-->>-Main: True
+  Main->>+EntryChecker: EntryChecker(18).check_only_numbers()
+  EntryChecker-->>-Main: True
   GcfClass -->>-Main: 6
 
   Main->>+SearchHistory: SearchHistory("rose", "12", "18", "6", "gcf: ").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("12 and 18 gcf: 6", "rose")
 
+```
+
+## Calculating LCM and the search history updating
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant EntryChecker
+  participant GcfClass
+  participant LcmClass
+  participant SearchHistory
+  participant FileEditor
+
   Main->>+LcmClass: LcmClass(22,3).lcm()
+  Main->>+EntryChecker: EntryChecker(22).check_only_numbers()
+  EntryChecker-->>-Main: True
+  Main->>+EntryChecker: EntryChecker(3).check_only_numbers()
+  EntryChecker-->>-Main: True
   LcmClass -->>-Main: 66
 
   Main->>+SearchHistory: SearchHistory("rose", "22", "3", "66", "lcm: ").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("22 and 3 lcm: 66", "rose")
 
+```
+
+## Calculating PF and the search history updating
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant EntryChecker
+  participant PfClass
+  participant SearchHistory
+  participant FileEditor
+
   Main->>+PfClass: PfClass(315).pf()
+  Main->>+EntryChecker: EntryChecker(315).check_only_numbers()
+  EntryChecker-->>-Main: True
   PfClass -->>-Main: [3, 3, 5, 7]
 
   Main->>+SearchHistory: SearchHistory("rose", "315", None, "3 x 3 x 5 x 7", "pf:").edit_hist()
   SearchHistory->>-FileEditor: FileEditor("pf: 3 x 3 x 5 x 7 = 315", "rose")
 
+```
+
+## Viewing search history
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant FileReader
+
   Main->>+FileReader: FileReader("rose").read_search_history()
   FileReader-->>-Main: "12 and 18 gcf: 6" + "\n" +  "22 and 3 lcm: 66" + "\n" + "pf: 3 x 3 x 5 x 7 = 315"
+
+```
+
+## Attempting practice quizzes
+
+```mermaid
+sequenceDiagram
+  participant Main
+  participant EntryChecker
+  participant GcfClass
+  participant LcmClass
+  participant PfClass
+  participant QuizClass
 
   Main->>+QuizClass: QuizClass().get_numbers()
   QuizClass-->>Main: 12, 56
@@ -146,7 +208,7 @@ sequenceDiagram
   Main->>+EntryChecker: EntryChecker("10").check_only_numbers()
   EntryChecker-->>-Main: True
   Main->>QuizClass: QuizClass(3,4,"10").find_lcm_result()
-  QuizClass-->>-Main: "Incorrect. Correct answer is: 10"
+  QuizClass-->>-Main: "Incorrect. Correct answer is: 12"
 
   Main->>+QuizClass: QuizClass().get_numbers()
   QuizClass-->>Main: 10, 63
