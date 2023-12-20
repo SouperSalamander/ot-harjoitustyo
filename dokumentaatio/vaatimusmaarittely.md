@@ -12,6 +12,10 @@ There will only be one level of user which is the normal user. They will be able
 
 ![image](UIdesign.png)
 
+![image](UIdesign2.png)
+
+![image](UIdesign3.png)
+
 ## Basic Functionality 
 
 ### Before Login
@@ -28,7 +32,7 @@ The reason for having the user log in before using the program is so that they c
 
 ### After Login
 
-- [x] The user will be given the choice between **Greatest Common Factor (GCF)**, **Lowest Common Multiple (LCM)**, **Prime Factorisation**, **Search History**, and **Log Out**. 
+- [x] The user will be given the choice between **Greatest Common Factor (GCF)**, **Lowest Common Multiple (LCM)**, **Prime Factorisation**,**Test Yourself**, **Search History**, and **Log Out**. 
 
 - [x] Choosing to log out will return the user to the welcome page.
 
@@ -42,6 +46,8 @@ The reason for having the user log in before using the program is so that they c
 
 - [x] PF will take in one number and output the number as the product of its primes with steps.
 
+- [x] Test yourself will take the user to an area to practise answering questions on these topics.
+
 ## Ideas for Further Development
 
 This project is one that could be easily expanded on in a variety of ways. For example, more calculator topics as well as different functionalities like quizzes and games.
@@ -49,8 +55,6 @@ This project is one that could be easily expanded on in a variety of ways. For e
 - [ ] Converting recurring decimals to fractions.
       
 - [ ] Percentage increase/decrease.
-
-- [x] An area to quiz the user on these topics.
 
 - [ ] Quiz progress could be tracked over time.
   
