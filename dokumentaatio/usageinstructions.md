@@ -1,5 +1,9 @@
 # Usage Instructions
 
+The first thing to do is download the program from the release `loppupalautus` found in the `README` file. Then run `poetry install`. 
+
+To start the program, run `poetry run invoke start`.
+
 ### First time user:
 
 When using the program for the first time the user will be required to make an account. To do this, pick an available username and a password containing both a letter and a number.
