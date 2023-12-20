@@ -336,7 +336,7 @@ class UI():
         num2 = None
         self.pf_clear()
         self.pf_entryBox1.insert(0,num1)
-        if num1 == '1':
+        if int(num1) == 1:
             messagebox.showerror("Error", "1 is not suitable for prime factorisation")
         elif EntryChecker(num1).check_only_numbers() is False:
             messagebox.showerror("Error", "only accepts whole numbers more than one (no spaces)")

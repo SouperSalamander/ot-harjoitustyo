@@ -93,6 +93,7 @@ class TestNumberChecker(unittest.TestCase):
         self.bad_num_zero = EntryChecker("0")
         self.bad_num_neg = EntryChecker("-5")
         self.bad_num_mix = EntryChecker("erjbfiFF?!] rf8329/.sd/")
+        self.empty_entry = EntryChecker("")
 
     def test_good_entry(self):
         self.assertEqual(self.good_num.check_only_numbers(), True)
@@ -104,6 +105,7 @@ class TestNumberChecker(unittest.TestCase):
         self.assertEqual(self.bad_num_zero.check_only_numbers(), False)
         self.assertEqual(self.bad_num_neg.check_only_numbers(), False)
         self.assertEqual(self.bad_num_mix.check_only_numbers(), False)
+        self.assertEqual(self.empty_entry.check_only_numbers(), False)
 
 class TestOperations(unittest.TestCase):
     def setUp(self):

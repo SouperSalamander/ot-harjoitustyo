@@ -23,12 +23,9 @@ class EntryChecker:
         Returns:
             True, if entry is suitable, otherwise False.
         """
-
-        if re.search("[A-Z]", self.__first_entry):
+        if len(self.__first_entry) == 0:
             return False
-        if re.search("[a-z]", self.__first_entry):
-            return False
-        if self.__first_entry.isdigit() is False:
+        if not re.search("^[0-9]*$", self.__first_entry):
             return False
         if int(self.__first_entry) <= 0:
             return False
