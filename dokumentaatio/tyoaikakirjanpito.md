@@ -32,10 +32,10 @@
 | 17/12/23 | 3 | docstrings, fixing tkinter issues |
 | 18/12/23 | 2 | new test, adding error messages if an input is not suitable, test document |
 | 19/12/23 | 0.25 | changing ui colours | 
-| 20/12/23 | 0.5 | ui colour edits and testing different inputs for unexpected outputs |
+| 20/12/23 | 1 | ui colour edits and testing different inputs for unexpected outputs |
 
 
 
 ## Total Time
 
-52 hours, 30 minutes
+53 hours, 0 minutes
