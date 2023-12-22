@@ -35,3 +35,4 @@
 * When a new account is created the password is encrypted before being saved to the `userAccounts` file.
 * The user interface has been made more aesthetically pleasing.
 * The user will be shown useful error messages if any of their inputs are not suitable.
+* The user is able to enter their answer for thr prime factorisation question in any order as their imput will be sorted by the `SortingAlgorithm` class.
