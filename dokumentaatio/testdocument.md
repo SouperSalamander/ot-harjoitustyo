@@ -6,13 +6,13 @@ The app was tested with automatic unit and integration tests using Pytest, as we
 
 ### Program Logic
 
-The automatic tests tested the files inside the `functionality` folder. The `number_theory_test` file tests the classes `FileReader`, `FileEditor`, `LoginClass`, `AccountCreation`, `EntryChecker`, `GcfClass`, `LcmClass`, `PfClass`, and `QuizClass`.
+The automatic tests tested the files inside the `functionality` folder. The `number_theory_test` file tests the classes `FileReader`, `FileEditor`, `LoginClass`, `AccountCreation`, `EntryChecker`, `GcfClass`, `LcmClass`, `PfClass`, `SortingAlgorithm`, and `QuizClass`.
 
-Most of these are unit tests however there are also some integration tests. Inside the  `number_theory_test` file, the `TestAccountCreation` class tests the `AccountCreation` class, parts of the `FileReader` class, as well as parts of the `FileEditor` class. Also, the `TestLogin` class tests the class `LoginClass` and parts of the `FileReader` class.
+Most of these are unit tests however there are also some integration tests. Inside the  `number_theory_test` file, the `TestAccountCreation` class tests the `AccountCreation` class, parts of the `FileReader` class, as well as parts of the `FileEditor` class. The `TestLogin` class tests the class `LoginClass` and parts of the `FileReader` class. Also the `TestQuiz` class tests `QuizClass` and `SortingAlgorithm`.
 
 ### Test Coverage
 
-Not including the UI, the coverage is 80%.
+Not including the UI, the coverage is 81%.
 
 ![image](coverage80.png)
 
