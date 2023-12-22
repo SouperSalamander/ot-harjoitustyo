@@ -53,6 +53,11 @@ classDiagram
     + find_pf_result() str
   }
 
+  class SortingAlgorithm {
+    - pf_list: list
+    + bubble_sort() list
+}
+
   class GcfClass {
     - number1: str
     - number2: str
@@ -77,6 +82,7 @@ classDiagram
   QuizClass --> GcfClass: uses
   QuizClass --> LcmClass: uses
   QuizClass --> PfClass: uses
+  QuizClass --> SortingAlgorithm: uses
   GcfClass <-- LcmClass: uses
 
 ```
@@ -195,6 +201,7 @@ sequenceDiagram
   participant LcmClass
   participant PfClass
   participant QuizClass
+  participant SortingAlgorithm
 
   Main->>+QuizClass: QuizClass().get_numbers()
   QuizClass-->>Main: 12, 56
@@ -212,6 +219,8 @@ sequenceDiagram
 
   Main->>+QuizClass: QuizClass().get_numbers()
   QuizClass-->>Main: 10, 63
+  Main->>+SortingAlgorithm: SortingAlgorithm([5,2]).bubble_sort()
+  SortingAlgorithm-->>-Main: 2, 5
   Main->>QuizClass: QuizClass(10,None,"2 5").find_pf_result()
   QuizClass-->>-Main: "Correct"
 
@@ -244,6 +253,10 @@ This is the file where all the calculations happen. There are 3 classes in this 
 ### quizzes.py:
 
 This file gets all the details relating to the quiz portion of the program. There is only one class, `QuizClass`. This class generates random integers for the questions. It also checks each of the user inputs by calling the respective class from the `operations.py` file. If the user input matches the returned value, the class returns `”Correct”`. Otherwise it returns `“Incorrect. Correct answer is:”` and the correct answer.
+
+### sort.py:
+
+This file takes the list input by the user as an answer to the Prime Factorisation section of the Test Yourself frame and uses a bubble sort algorithm to order it from smallest to largest. This is so that the user can enter the prime factors in any order and still get it correct.
 
 ### search_history.py: 
 
