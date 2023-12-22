@@ -3,6 +3,7 @@ from random import randint
 from functionality.operations import GcfClass
 from functionality.operations import LcmClass
 from functionality.operations import PfClass
+from functionality.sort import SortingAlgorithm
 
 class QuizClass():
     """Class handles quiz questions and answers.
@@ -27,7 +28,7 @@ class QuizClass():
         self.__attempt = attempt
 
     def get_numbers(self):
-        """generates random numbers.
+        """Generates random numbers.
         
         Returns:
             Two whole numbers between 1 and 99.
@@ -75,24 +76,16 @@ class QuizClass():
         """
 
         pf_is = PfClass(self.__num1).pf()
-        attempt = str(self.__attempt).split(" ")
-        input_len = len(attempt)
-        swapped = False
-        for i in range(input_len-1):
-            for j in range(0,input_len-i-1):
-                if attempt[j] > attempt[j+1]:
-                    swapped = True
-                    attempt[j],attempt[j+1] = attempt[j+1],attempt[j]
-            if not swapped:
-                pass
+        attempt = self.__attempt
+        sorted_attempt = SortingAlgorithm(attempt).bubble_sort()
+        input_len = len(sorted_attempt)
         if input_len != len(pf_is):
             incorrect_str = "Incorrect. Correct answer is: " + str(pf_is)
             return incorrect_str
-        for i in range(0, input_len-1):
-            if attempt[i] == str(pf_is[i]):
+        for i in range(0, input_len):
+            if sorted_attempt[i] == str(pf_is[i]):
                 pass
             else:
                 incorrect_str = "Incorrect. Correct answer is: " + str(pf_is)
                 return incorrect_str
         return "Correct"
-            

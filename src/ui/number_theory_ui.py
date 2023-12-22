@@ -225,13 +225,24 @@ class UI():
             messagebox.showerror("Error", "answer can't be empty")
             self.back3.pack()
         else:
-            correct_pf = QuizClass(num1,None,attempt).find_pf_result()
-            self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf,bg = "#EAE0DA")
-            self.pf_test_answer_lbl.pack(pady = 3)
-            self.back3.pack()
-            flag = 0
-            self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", bg = "#D5E3E8", command = lambda: self.clear_pf_test_lbls(flag))
-            self.pf_test_clear.pack(pady = 3)
+            attempt = str(attempt).split(" ")
+            bad_num = False
+            for i in range(0, len(attempt)):
+                if EntryChecker(attempt[i]).check_only_numbers() is False:
+                    bad_num = True
+                else:
+                    pass
+            if bad_num is True:
+                messagebox.showerror("Error", "enter integers separated by spaces.")
+                self.back3.pack()
+            else:
+                correct_pf = QuizClass(num1,None,attempt).find_pf_result()
+                self.pf_test_answer_lbl = Label(self.pf_quiz_frame, text = correct_pf,bg = "#EAE0DA")
+                self.pf_test_answer_lbl.pack(pady = 3)
+                self.back3.pack()
+                flag = 0
+                self.pf_test_clear = Button(self.pf_quiz_frame, text = "try again", bg = "#D5E3E8", command = lambda: self.clear_pf_test_lbls(flag))
+                self.pf_test_clear.pack(pady = 3)
 
     def test_pf(self):
         """user can answer questions about pf"""
