@@ -34,9 +34,8 @@
 | 19/12/23 | 0.25 | changing ui colours | 
 | 20/12/23 | 1 | ui colour edits and testing different inputs for unexpected outputs |
 | 21/12/23 | 1.5 | documentation updates |
-
-
+| 22/12/23 | 3 | final bug fixes and documentation updates |
 
 ## Total Time
 
-54 hours, 30 minutes
+57 hours, 30 minutes
